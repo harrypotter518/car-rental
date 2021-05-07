@@ -1,4 +1,3 @@
-sdadasdasssssssssssssss
 @extends('admin.layouts.app')
 @section('content')
     <div class="pcoded-content">
@@ -48,8 +47,8 @@ sdadasdasssssssssssssss
                                 <div class="card counter-card-1">
                                     <div class="card-block-big">
                                         <div>
-                                            {{-- <h3>{{ $booking }}</h3> --}}
-                                            <p>{{ __('New Bookings') }}
+                                          <h3>{{ $data['booking_count'] }}</h3>
+                                            <p>{{ __('Bookings') }}
                                                 <span class="f-right text-primary">
                                                     <i class="icofont icofont-arrow-up"></i>
                                                 </span>
@@ -83,9 +82,9 @@ sdadasdasssssssssssssss
                         </div>
 
 
-{{-- 
+
                         <ul class="row dashnav">
-                            <li class="col-lg-3 col-md-4 col-6"> <a href="{{ url('/admin') }}"
+                            <li class="col-lg-3 col-md-4 col-6"> <a href="{{ url('/admin/home') }}"
                                     class="waves-effect waves-light"><i class="ti-dashboard"></i><span>
                                         {{ __('Dashboard') }} </span></a> </li>
                             <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'slider') }}"
@@ -98,21 +97,21 @@ sdadasdasssssssssssssss
                             <li class="col-lg-3 col-md-4 col-6"> <a href="{{ url('admin/booking') }}"
                                     class="waves-effect waves-light"><i class="ti-desktop"></i><span> {{ __('Bookings') }}
                                     </span></a> </li>
-                            <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'blogs') }}"
+                            {{-- <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'blogs') }}"
                                     class="waves-effect waves-light"><i
-                                        class="ti-files"></i><span>{{ __('Blog') }}</span></a> </li>
-                            <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'services') }}"
+                                        class="ti-files"></i><span>{{ __('Blog') }}</span></a> </li> --}}
+                            {{-- <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'services') }}"
                                     class="waves-effect waves-light"><i
-                                        class="ti-layout-list-thumb-alt"></i><span>{{ __('Services') }}</span></a> </li>
-                            <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'our-experts') }}"
+                                        class="ti-layout-list-thumb-alt"></i><span>{{ __('Services') }}</span></a> </li> --}}
+                            {{-- <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'our-experts') }}"
                                     class="waves-effect waves-light"><i
-                                        class="ti-gallery"></i><span>{{ __('Our Experts') }}</span></a> </li>
-                            <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'testimonials') }}"
+                                        class="ti-gallery"></i><span>{{ __('Our Experts') }}</span></a> </li> --}}
+                            {{-- <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'testimonials') }}"
                                     class="waves-effect waves-light"><i
-                                        class="ti-layout-grid2"></i><span>{{ __('Testimonials') }}</span></a> </li>
-                            <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'partners') }}"
+                                        class="ti-layout-grid2"></i><span>{{ __('Testimonials') }}</span></a> </li> --}}
+                            {{-- <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'partners') }}"
                                     class="waves-effect waves-light"><i
-                                        class="ti-pencil-alt"></i><span>{{ __('Partners') }}</span></a> </li>
+                                        class="ti-pencil-alt"></i><span>{{ __('Partners') }}</span></a> </li> --}}
                             <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.menus') }}"
                                     class="waves-effect waves-light"><i
                                         class="ti-menu-alt"></i><span>{{ __('Site Menus') }}</span></a> </li>
@@ -122,7 +121,7 @@ sdadasdasssssssssssssss
                             <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.logout') }}"
                                     class="waves-effect waves-light"><i
                                         class="ti-user"></i><span>{{ __('Logout') }}</span></a> </li>
-                        </ul> --}}
+                        </ul>
 
 
                     </div>

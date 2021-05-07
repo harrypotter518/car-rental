@@ -7,6 +7,7 @@ use App\Models\Contact_us;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -26,10 +27,9 @@ class AdminController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function home() {
-      
          $data['admins'] = Admin::get();
-         var_dump($data);
-        return view('admin.home')->with($data);;
+         $data['booking_count'] = DB::table("bookings")->get()->count();
+        return view('admin.home')->with('data',$data);
     }
 
     public function index() {
