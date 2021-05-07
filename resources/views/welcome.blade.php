@@ -61,7 +61,7 @@
 
           <p>{{ widget(3)->description }}</p>
 
-          <a href="{{ widget(3)->extra_field_7 }}" class="btn btn-default section-btn">{{ widget(3)->extra_field_6 }}</a> 
+    
         </div>
 
       </div>
@@ -86,14 +86,41 @@
 
       @csrf
 
-      <div class="formrow">
+     
 
-        {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
+      <div class="row">
 
-        {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
+        <div class="col-md-4 col-sm-4">
+
+          <div class="formrow">
+
+            <input type="text" class="form-control" placeholder="{{__('Your Name')}}" name="name" required >
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+
+          <div class="formrow">
+
+            <input type="email" class="form-control" placeholder="{{__('Your Email')}}" name="email" required>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+
+          <div class="formrow">
+
+            <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
+
+          </div>
+
+        </div>
 
       </div>
-
       <div class="row">
 
         <div class="col-md-6 col-sm-6">
@@ -168,39 +195,18 @@
 
       </div>
 
-      <div class="row">
+      <div style ="color:white; padding-left:3rem;">a. 111 W Wacker Drive (Free)</div>
+      <div style ="color:white; padding-left:3rem; padding-bottom:1rem">b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)</div>
 
-        <div class="col-md-4 col-sm-4">
+      <div class="formrow">
 
-          <div class="formrow">
+        {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
 
-            <input type="text" class="form-control" placeholder="{{__('Your Name')}}" name="name" required >
-
-          </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="email" class="form-control" placeholder="{{__('Your Email')}}" name="email" required>
-
-          </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
-
-          </div>
-
-        </div>
+        {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
 
       </div>
+
+  
 
       <div class="formbtn">
 
@@ -210,9 +216,13 @@
 
     </form>
 
+    <a href="/booking_details" class="btn btn-default section-btn"  style="float:right; margin-top:-4.5vh">{{ widget(3)->extra_field_6 }}</a> 
+  
   </div>
 
 </div>
+
+
 
 
 
@@ -247,6 +257,7 @@
               <div class="subtitle">{{$car->extra_field_1}}</div>
 
               <div class="carPrice"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
+              <div style="margin-top:10px!important">Horsepower:<strong>{{$car->extra_field_4}}</strong></div>
 
               <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}} </a> </div>
 
@@ -256,19 +267,14 @@
 
               <div class="carinfo">
 
+        
                 <ul>
-
-                  <li>{{__('Doors')}}: <strong>{{$car->extra_field_4}}</strong></li>
-
-                  <li>{{__('Passengers')}}: <strong>{{$car->extra_field_5}}</strong></li>
-
-                  <li>{{__('Luggage')}}: <strong>{{$car->extra_field_6}}</strong></li>
-
-                  <li>{{__('Transmission')}}: <strong>{{$car->extra_field_7}}</strong></li>
-
-                  <li>{{__('Air conditioning')}}: <strong>{{$car->extra_field_8}}</strong></li>
-
-                  <li>{{__('Minimum age')}}: <strong>{{$car->extra_field_9}}</strong></li>
+                  <li>{{__('Features')}}</li>
+                  <?php   $features = explode(',', $car->extra_field_5 ); ?>
+                  @foreach($features as $feature)
+                    {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
+                    <li>{{$feature}}</li> 
+                  @endforeach
 
                 </ul>
 
@@ -711,8 +717,8 @@
 </div> --}}
 
 
-{{-- 
-<div id="blog">
+
+{{-- <div id="blog">
 
   <div class="container"> 
 

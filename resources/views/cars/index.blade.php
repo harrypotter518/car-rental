@@ -36,7 +36,7 @@
 
   <div class="container"> 
 
-    <h2>{{__('Choose your Preffer Car For Rental')}}</h2>
+    <h2>{{__('Choose your Car For Rental')}}</h2>
 
     <!-- Blog start -->
 
@@ -58,7 +58,7 @@
 
               <h3>{{$car->title}}</h3>
 
-              <div class="subtitle">{{$car->extra_field_1}}</div>
+              <div class="subtitle" style="padding-top: 10px;">{{$car->extra_field_1}}</div>
 
               <div class="carPrice"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
               <div style="margin-top:10px!important">Horsepower:<strong>{{$car->extra_field_4}}</strong></div>
@@ -86,40 +86,27 @@
 
         @endif
 
-        @endif
-
-        
-
-        
+        @endif      
 
           </div>
 
         </div>
 
             <div class="col-md-3">
-
               <div class="carinfo">
                 <ul>
-
                   <li>{{__('Features')}}</li>
                   @foreach($features as $feature)
                       {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
-                      <li> <strong>{{$feature}}</strong></li> 
+                      <li>{{$feature}}</li> 
                   @endforeach
-
-
                 </ul>
-
               </div>
-
             </div>
-
           </div>
 
         </li>
-
             @endforeach
-
           </ul>
 
           @endif
@@ -162,11 +149,7 @@
 
         </div>
 
-      
-
     </div>
-
-
 
 
 

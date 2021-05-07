@@ -13,6 +13,7 @@ use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CarsController;
 
+use App\Http\Controllers\BookingdetailsController;
 use App\Http\Controllers\MailController;
 
 
@@ -78,6 +79,12 @@ Route::get('blog',[BlogsController::class, 'index'])->name('blogs.list');
 Route::get('blog/{slug}',[BlogsController::class, 'detail'])->name('blogs.detail');
 
 /*End Blogs*/
+
+/*Booking details Start*/
+Route::get('booking_details',[BookingdetailsController::class, 'index'])->name('booking_details.index');
+// Route::get('blog/{slug}',[BlogsController::class, 'detail'])->name('blogs.detail');
+
+/*End Booking details */
 
 /*Cars Start*/
 Route::get('cars',[CarsController::class, 'index'])->name('cars.list');

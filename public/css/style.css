@@ -627,7 +627,7 @@ parallax-section {
 
 }
 .is-sticky .custom-navbar {
-    background: #fff;
+    background: #000;
     -moz-box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
     box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
@@ -672,10 +672,10 @@ parallax-section {
     transition: all ease-in-out 0.4s;
 }
 .is-sticky .navbar-light .navbar-nav .nav-link {
-    color: #999;
+    color: rgb(245, 240, 240);
 }
 .is-sticky .navbar-light .navbar-nav .nav-link:hover {
-    color: #333;
+    color: rgb(158, 156, 156);
 }
 .is-sticky .custom-navbar .navbar-brand {
     color: #f9c200;
@@ -939,19 +939,21 @@ parallax-section {
 .carinfo {
     background: #3c3e41;
     padding: 20px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius:2rem; 
+    box-shadow: 0px 10px 10px rgba(0 0 0 /100%);
 }
 .carinfo ul li {
     font-size: 14px;
     color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
     padding: 10px 0;
 }
 .carinfo ul li:last-child {
     border-bottom: 0;
 }
 .carinfo ul li strong {
-    float: right;
+    float: left;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
 }
 /*---------------------------------------   Counter section              -----------------------------------------*/
 #counter {
@@ -2639,7 +2641,7 @@ blockquote:after {
         padding: 7px 15px;
     }
     .is-sticky .custom-navbar {
-        background: #fff;
+        background: #000;
     }
     .is-sticky .navbar-nav .nav li .calltxt {
         margin-top: 0;
@@ -2816,4 +2818,11 @@ blockquote:after {
     #about .team-wrapper .team-desc {
         padding-top: 14em;
     }
+}
+
+
+
+
+.form-check{
+    color:white
 }

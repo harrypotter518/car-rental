@@ -15,6 +15,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ widget(1)->extra_field_1 }}</title>
+    <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
