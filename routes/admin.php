@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 // Dashboard
-Route::get('/', 'AdminController@index')->name('home');
+Route::get('/home', 'AdminController@home')->name('home');
 
 /*Admin routes Start*/
 

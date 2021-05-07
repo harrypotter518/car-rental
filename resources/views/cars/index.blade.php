@@ -56,12 +56,12 @@
 
             <div class="col-md-3">
 
-              <h3>{{$car->title}}</h3>
+              <h3 style="margin-top: 1vh;">{{$car->title}}</h3>
 
-              <div class="subtitle" style="padding-top: 10px;">{{$car->extra_field_1}}</div>
+              <div class="subtitle" style="padding-top: 3vh;">{{$car->extra_field_1}}</div>
 
-              <div class="carPrice"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
-              <div style="margin-top:10px!important">Horsepower:<strong>{{$car->extra_field_4}}</strong></div>
+              <div class="carPrice" style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
+              <div style="padding-top: 2vh;">Horsepower:<strong>{{$car->extra_field_4}}</strong></div>
 
               <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}}</a> </div>
 
@@ -80,7 +80,7 @@
 
         @foreach($images as $img)
 
-          <div class="item"><a href="{{asset('images/'.$img)}}" class="image-popup"><img src="{{asset('images/'.$img)}}" alt="" /></a></div>
+          <div class="item" style="padding-top: 1vh;"><a href="{{asset('images/'.$img)}}" class="image-popup"><img src="{{asset('images/'.$img)}}" alt="" /></a></div>
 
         @endforeach
 

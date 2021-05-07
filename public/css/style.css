@@ -945,7 +945,7 @@ parallax-section {
 .carinfo ul li {
     font-size: 14px;
     color: #fff;
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     padding: 10px 0;
 }
 .carinfo ul li:last-child {

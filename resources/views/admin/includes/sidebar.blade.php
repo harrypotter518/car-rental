@@ -38,9 +38,9 @@
 
         <ul class="pcoded-item pcoded-left-item">
 
-            {{-- <li class=" ">
+            <li class=" ">
 
-                <a href="{{ url('/admin') }}" data-i18n="nav.form-wizard.main">
+                <a href="{{ url('/admin/home') }}" data-i18n="nav.form-wizard.main">
 
                     <span class="pcoded-micon"><i class="ti-home"></i></span>
 
@@ -50,7 +50,7 @@
 
                 </a>
 
-            </li> --}}
+            </li>
 
 
 

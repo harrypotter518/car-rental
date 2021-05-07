@@ -26,7 +26,9 @@ class AdminController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function home() {
+      
          $data['admins'] = Admin::get();
+         var_dump($data);
         return view('admin.home')->with($data);;
     }
 
