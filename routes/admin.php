@@ -173,7 +173,7 @@ Route::get('/contact-us-detail/{id}', 'ContactusController@detail')->name('conta
 Route::get('/booking', 'BookingController@index')->name('booking');
 
 Route::get('/booking-detail/{id}', 'BookingController@detail')->name('booking-detail');
-
+Route::get('/booking-destroy/{id}', 'BookingController@destroy')->name('booking-destroy');
 
 Route::get('/delete-tag/{tag}', 'TagsController@destroy')->name('tags.delete');
 

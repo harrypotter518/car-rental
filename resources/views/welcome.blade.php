@@ -1033,7 +1033,7 @@
 @endsection
 
 @push('js')
-
+{{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script> --}}
 {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>  --}}
 {{--  
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>  --}}

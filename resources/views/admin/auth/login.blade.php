@@ -12,7 +12,7 @@
                          <form class="md-float-material" method="POST" action="{{ route('admin.login') }}" aria-label="{{ __('Login') }}">
                         @csrf
                             <div class="text-center">
-                                <img src="{{asset('images/'.widget(1)->extra_image_1)}}" alt="logo.png">
+                                <img src="{{asset('images/'.widget(1)->extra_image_1)}}" alt="logo.png" width="120rem" >
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">

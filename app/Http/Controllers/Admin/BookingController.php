@@ -34,4 +34,12 @@ class BookingController extends Controller
         $message->update();
         return view('admin.booking.detail')->with('message',$message);
     }
+
+    public function destroy($id)
+    {
+        $data = Booking::findOrFail($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
 }
