@@ -150,7 +150,7 @@
                 </div>  
             </div>
             
-            <div class="col-md-12" style="padding-top:20vh; color:white">
+            <div class="col-md-12" style="padding-top:10vh; color:white">
                 <div class="bformBox" style="border-radius:2rem; box-shadow: 0px 10px 10px rgba(0 0 0 /100%); ">
 
                   <h3>Add Insurances</h3> 
