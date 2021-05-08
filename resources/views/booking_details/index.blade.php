@@ -12,7 +12,15 @@
         </div>
     </div>
 
-    <div class="container">
+  <div class="row">
+    <div class="col-2">
+      <img alt="" src="images/mark/ford.jpg" >
+      <img alt="" src="images/mark/mazda.jpg">
+      <img alt="" src="images/mark/chrysler.jpg" >
+      <img alt="" src="images/mark/wagen.jpg" >
+       <img alt="" src="images/mark/volvo.jpg" >
+    </div>
+    <div class="container col-8">
      <form action="{{route('booking.post')}}" method="POST">
           @csrf 
         <div class="row">
@@ -87,7 +95,7 @@
                         <div class="col-md-8 col-sm-8">
                             <div style="padding-left:3rem">
                               <div style="padding-bottom:1rem"> a. 100 dollars </div>
-                              <div class="form-group form-md-line-input has-info" >
+                              <div class="form-group form-md-line-input has-info" id="input5" style="display:none">
                                 <input type="text" class="form-control" id="form_control_1" placeholder="Please enter address">
                                 <label for="form_control_1">Address:</label>
                               </div>
@@ -106,15 +114,15 @@
                             6.Pick up (we will pick up the vehicle from your desired location within 30 miles of Chicago) </label>
                             </div>
                       </div>
-                      <div class="col-md-8 col-sm-8">
+                      <div class="col-md-8 col-sm-8" >
                             <div style="padding-left:3rem">
                               <div style="padding-bottom:1rem"> a. 100 dollars </div>
                                       
-                              <div class="form-group form-md-radios">
+                              <div class="form-group form-md-radios" id="radiopart_6" style="display:none">
                                 <label>PIck up same as delivery</label>
                                 <div class="md-radio-list">
                                   <div class="md-radio">
-                                    <input type="radio" id="radio1" name="radio1" class="md-radiobtn">
+                                    <input type="radio" id="radio1" name="radio1" class="md-radiobtn" checked>
                                     <label for="radio1">
                                     <span></span>
                                     <span class="check"></span>
@@ -122,7 +130,7 @@
                                     Yes </label>
                                   </div>
                                   <div class="md-radio">
-                                    <input type="radio" id="radio2" name="radio1" class="md-radiobtn" checked>
+                                    <input type="radio" id="radio2" name="radio1" class="md-radiobtn" >
                                     <label for="radio2">
                                     <span></span>
                                     <span class="check"></span>
@@ -132,7 +140,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group form-md-line-input has-info" >
+                              <div class="form-group form-md-line-input has-info"  id="input6" style="display:none">
                                 <input type="text" class="form-control" id="form_control_1" placeholder="Please enter address"  style="color:white">
                                 <label for="form_control_1">Address:</label>
                               </div>
@@ -158,18 +166,18 @@
                               1. I have my own physical damage and liability insurance, for example, through my credit card company.</label>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-group form-md-line-input has-info">
-                              <input type="text" class="form-control" id="form_control_1" placeholder="Please enter company name"  style="color:white">
-                              <label for="form_control_1">Company name:</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                             <div class="form-group form-md-line-input has-info">     
-                              <input type="text" class="form-control" id="form_control_1" placeholder="Please enter policy number" style="color:white">
-                              <label for="form_control_1">Policy number</label>
-                            </div>
-                        </div>
+                          <div class="col-md-6 col-sm-6" id="input11_1" style="display:none">
+                              <div class="form-group form-md-line-input has-info">
+                                <input type="text" class="form-control" id="form_control_1" placeholder="Please enter company name"  style="color:white">
+                                <label for="form_control_1">Company name:</label>
+                              </div>
+                          </div>
+                          <div class="col-md-6 col-sm-6" id="input11_2" style="display:none">
+                              <div class="form-group form-md-line-input has-info">     
+                                <input type="text" class="form-control" id="form_control_1" placeholder="Please enter policy number" style="color:white">
+                                <label for="form_control_1">Policy number</label>
+                              </div>
+                          </div>
                       
                     </div>
 
@@ -214,6 +222,14 @@
         </div>
       </form>
     </div>  
+     <div class="col-2">
+      <img alt="" src="images/mark/subaru.jpg" >
+      <img alt="" src="images/mark/suzuki.jpg" >
+      <img alt="" src="images/mark/GMC.jpg">
+       <img alt="" src="images/mark/toyota.png">     
+      <img alt="" src="images/mark/honda.jpg" >      
+    </div>
+  </div>
 
 
     @endsection
@@ -221,5 +237,59 @@
     @push('js')
 
         <script type="text/javascript" src="{{ asset('js/moving.js') }}"></script>
+        
+        <script>
+            $(document).on('click', '#checkbox11', function(){
+              if ($('#checkbox11').is(':checked') == true) 
+              {
+                $('#input11_1').show(); $('#input11_2').show();   
+              }     
+              else
+              {   
+                 $('#input11_1').hide(); $('#input11_2').hide();
+              }   
+            });
 
+            $(document).on('click', '#checkbox5', function(){
+              if ($('#checkbox5').is(':checked') == true) 
+              {
+                $('#input5').show(); 
+              }     
+              else
+              {   
+                 $('#input5').hide();
+              }   
+            });
+            $(document).on('click', '#checkbox6', function(){
+              if ($('#checkbox6').is(':checked') == true) 
+              {
+                $('#radiopart_6').show(); 
+              }     
+              else
+              {   
+                 $('#radiopart_6').hide();
+                 $('#radio1').checked = true;
+              }   
+            });
+
+            $(document).on('click', '#radio1', function(){
+              
+                $('#input6').hide(); 
+          
+            });
+            $(document).on('click', '#radio2', function(){
+              
+                $('#input6').show(); 
+          
+            });
+
+
+            
+
+
+         
+        </script>
+
+
+.is(':checked') == true
     @endpush
