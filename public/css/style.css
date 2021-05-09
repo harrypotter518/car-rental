@@ -2833,7 +2833,7 @@ blockquote:after {
     margin-top: 1rem;
     color:white;
     background: #000;
-    border-radius:2rem; 
+    /* border-radius:2rem;  */
     box-shadow: 0px 10px 10px rgba(0 0 0 /100%); 
 }
 

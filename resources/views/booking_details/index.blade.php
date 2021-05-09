@@ -151,7 +151,7 @@
             </div>
             
             <div class="col-md-12" style="padding-top:3vh; color:white">
-                <div class="detail_form">
+                <div class="detail_form" >
 
                   <h3>Add Insurances</h3> 
                     
@@ -215,7 +215,7 @@
             <div class="row"  style="margin:auto; padding:2vh">
               <div class="col-md-12 col-sm-12">
                 <div class="formbtn">
-                  <input type="submit" class="btn" value="Reserve Now"  style="border-radius:1rem">
+                  <input type="submit" class="btn" value="Reserve Now"  style="border-radius:10px">
                 </div>  
               </div>
             </div>
@@ -223,7 +223,7 @@
       </form>
     </div>  
     <div class="col-md-2 col-sm-2 col-2">
-      <img alt="" src="images/mark/subaru.jpg"  style="padding-top:1rem">
+      <img alt="" src="images/mark/subaru.jpg"  style="padding-top:1rem; border-radius:10px" >
       <img alt="" src="images/mark/suzuki.jpg"  style="padding-top:1rem">
       <img alt="" src="images/mark/GMC.jpg" style="padding-top:1rem">
        <img alt="" src="images/mark/toyota.png" style="padding-top:1rem">     
