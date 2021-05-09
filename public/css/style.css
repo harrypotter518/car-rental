@@ -2628,8 +2628,8 @@ blockquote:after {
     }
     .navbar-toggler {
         position: absolute;
-        top: 15px;
-        right: 20px;
+        top: -10px;
+        right: 20px; 
         background: #fff;
         display: block;
     }
@@ -2825,4 +2825,19 @@ blockquote:after {
 
 .form-check{
     color:white
+}
+
+
+.detail_form{
+    padding:2rem;
+    margin-top: 1rem;
+    color:white;
+    background: #000;
+    border-radius:2rem; 
+    box-shadow: 0px 10px 10px rgba(0 0 0 /100%); 
+}
+
+
+.detail_form h3{
+    padding-bottom:2vh;
 }

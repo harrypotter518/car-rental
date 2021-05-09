@@ -27,7 +27,7 @@
 
                             <!-- counter-card-1 end-->
                             <!-- counter-card-2 start -->
-                            <div class="col-md-6 col-xl-4">
+                            <div class="col-md-6 col-xl-6">
                                 <div class="card counter-card-2">
                                     <div class="card-block-big">
                                         <div>
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <!-- counter-card-2 end -->
-                            <div class="col-md-12 col-xl-4">
+                            <div class="col-md-6 col-xl-6">
                                 <div class="card counter-card-1">
                                     <div class="card-block-big">
                                         <div>
@@ -96,6 +96,9 @@
                                     </span></a> </li>
                             <li class="col-lg-3 col-md-4 col-6"> <a href="{{ url('admin/booking') }}"
                                     class="waves-effect waves-light"><i class="ti-desktop"></i><span> {{ __('Bookings') }}
+                                    </span></a> </li>
+                           <li class="col-lg-3 col-md-4 col-6" > <a href="{{ url('admin/contact-us-messages') }}"
+                                    class="waves-effect waves-light" ><i class="ti-files"></i><span> {{ __('Contact Us') }}
                                     </span></a> </li>
                             {{-- <li class="col-lg-3 col-md-4 col-6"> <a href="{{ route('admin.modules.data', 'blogs') }}"
                                     class="waves-effect waves-light"><i

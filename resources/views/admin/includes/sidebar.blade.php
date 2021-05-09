@@ -227,6 +227,38 @@
 
             </li>
 
+                  <li class="pcoded-hasmenu">
+
+                <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+
+                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i></span>
+
+                    <span class="pcoded-mtext">{{ __('Contact Us') }}</span>
+
+                    <span class="pcoded-mcaret"></span>
+
+                </a>
+
+                <ul class="pcoded-submenu">
+
+                    <li class=" ">
+
+                        <a href="{{ url('admin/contact-us-messages') }}" data-i18n="nav.navigate.navbar">
+
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+
+                            <span class="pcoded-mtext">{{ __('List of Contacts') }}</span>
+
+                            <span class="pcoded-mcaret"></span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
 
 
             {{-- <li class="pcoded-hasmenu">

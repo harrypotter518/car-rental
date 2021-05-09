@@ -130,7 +130,8 @@
             <div class="input-group"> 
               <span class="input-group-addon"  style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i>{{__('Pick-Up')}}</span>
 
-              <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Address')}}" value=""  style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" required="required">
+              <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Address')}}" value=""  style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" required="required" title="a. 111 W Wacker Drive (Free)
+b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
 
               <input type="hidden" name="pick_up_lat" id="pick_up_lat">
 
@@ -167,7 +168,8 @@
             <div class="input-group"> 
               <span class="input-group-addon" style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop-Off')}}</span>
 
-              <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="" style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" >
+              <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="" style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" title="a. 111 W Wacker Drive (Free)
+b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
 
               <input type="hidden" name="drop_off_lat" id="drop_off_lat">
 
@@ -195,9 +197,6 @@
 
       </div>
 
-      <div style ="color:white; padding-left:3rem;">a. 111 W Wacker Drive (Free)</div>
-      <div style ="color:white; padding-left:3rem; padding-bottom:1rem">b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)</div>
-
       <div class="formrow">
 
         {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
@@ -216,7 +215,7 @@
 
     </form>
 
-    <a href="/booking_details" class="btn btn-default section-btn"  style="float:right; margin-top:-4.5vh">{{ widget(3)->extra_field_6 }}</a> 
+    <a href="/booking_details" class="btn btn-default section-btn"  style="float:right; margin-top:-1vh">{{ widget(3)->extra_field_6 }}</a> 
   
   </div>
 
@@ -796,7 +795,7 @@
 
 <!-- Newsletter-->
 
-<div class="newsletter">
+{{-- <div class="newsletter">
 
   <div class="container">
 
@@ -837,7 +836,7 @@
   </div>
 
 </div>
-
+ --}}
 
 
 <div id="map">

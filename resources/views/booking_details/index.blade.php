@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/metronic_component.css') }}" />
 
     <!-- Inner Heading Start -->
-    <div class="pageTitle">
+    <div class="pageTitle" style="margin-top:2vh">
         <div class="container">
             <h1 class="page-heading">
               {{ __('Booking Details') }}
@@ -13,20 +13,20 @@
     </div>
 
   <div class="row">
-    <div class="col-2">
-      <img alt="" src="images/mark/ford.jpg" >
-      <img alt="" src="images/mark/mazda.jpg">
-      <img alt="" src="images/mark/chrysler.jpg" >
-      <img alt="" src="images/mark/wagen.jpg" >
-       <img alt="" src="images/mark/volvo.jpg" >
+    <div class="col-md-2 col-sm-2 col-2">
+      <img alt="" src="images/mark/ford.jpg" style="padding-top:1rem">
+      <img alt="" src="images/mark/mazda.jpg" style="padding-top:1rem">
+      <img alt="" src="images/mark/chrysler.jpg" style="padding-top:1rem">
+      <img alt="" src="images/mark/wagen.jpg" style="padding-top:1rem">
+       <img alt="" src="images/mark/volvo.jpg"  style="padding-top:1rem">
     </div>
-    <div class="container col-8">
+    <div class="container col-md-8 col-sm-8 col-8">
      <form action="{{route('booking.post')}}" method="POST">
           @csrf 
         <div class="row">
-            <div class="col-md-12 col-lg-12"  style="padding-top:10vh; color:white">
+            <div class="col-md-12 col-lg-12" >
 
-                <div class="bformBox" style="border-radius:2rem; box-shadow: 0px 10px 10px rgba(0 0 0 /100%); background:#111;">
+                <div class="detail_form">
 
                   <h3>Add following products</h3>       
                    <div class="row" style="padding-bottom:1vh;">
@@ -150,8 +150,8 @@
                 </div>  
             </div>
             
-            <div class="col-md-12" style="padding-top:10vh; color:white">
-                <div class="bformBox" style="border-radius:2rem; box-shadow: 0px 10px 10px rgba(0 0 0 /100%); ">
+            <div class="col-md-12" style="padding-top:3vh; color:white">
+                <div class="detail_form">
 
                   <h3>Add Insurances</h3> 
                     
@@ -222,12 +222,12 @@
         </div>
       </form>
     </div>  
-     <div class="col-2">
-      <img alt="" src="images/mark/subaru.jpg" >
-      <img alt="" src="images/mark/suzuki.jpg" >
-      <img alt="" src="images/mark/GMC.jpg">
-       <img alt="" src="images/mark/toyota.png">     
-      <img alt="" src="images/mark/honda.jpg" >      
+    <div class="col-md-2 col-sm-2 col-2">
+      <img alt="" src="images/mark/subaru.jpg"  style="padding-top:1rem">
+      <img alt="" src="images/mark/suzuki.jpg"  style="padding-top:1rem">
+      <img alt="" src="images/mark/GMC.jpg" style="padding-top:1rem">
+       <img alt="" src="images/mark/toyota.png" style="padding-top:1rem">     
+      <img alt="" src="images/mark/honda.jpg"  style="padding-top:1rem">      
     </div>
   </div>
 

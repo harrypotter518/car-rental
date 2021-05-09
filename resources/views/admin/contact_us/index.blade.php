@@ -54,7 +54,8 @@
                                     <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)}}</td>
                                     <td>
                                       <a href="{{route('admin.contact-us-detail',[$data->id])}}" class="tabledit-edit-button btn btn-primary waves-effect waves-light"><span class="icofont icofont-eye-alt"></span> {{__('View Detail')}}</a>
-                                      
+                                       <a href="{{route('admin.contact-us-destroy',[$data->id])}}" class="tabledit-delete-button btn btn-danger waves-effect waves-light"><span class="icofont icofont-ui-delete"></span>&nbsp {{__('Delete')}}</a>
+
                                       
                                     </td>
                                  </tr>

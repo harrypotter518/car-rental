@@ -54,7 +54,6 @@ class BookingController extends Controller
             'phone' => 'required',
 
         ]);
-var_dump("jjjiiiwww");  
 
 $details = [
     'title' => 'Mail from ItSolutionStuff.com',

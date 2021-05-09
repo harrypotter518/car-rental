@@ -168,7 +168,7 @@ Route::get('/delete-tag/{tag}', 'TagsController@destroy')->name('tags.delete');
 Route::get('/contact-us-messages', 'ContactusController@index')->name('contact-us-messages');
 
 Route::get('/contact-us-detail/{id}', 'ContactusController@detail')->name('contact-us-detail');
-
+Route::get('/contact-us-destroy/{id}', 'ContactusController@destroy')->name('contact-us-destroy');
 
 Route::get('/booking', 'BookingController@index')->name('booking');
 

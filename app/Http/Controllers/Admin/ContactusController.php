@@ -34,4 +34,11 @@ class ContactusController extends Controller
         $message->update();
         return view('admin.contact_us.detail')->with('message',$message);
     }
+
+    public function destroy($id)
+    {
+        $data = Contact_us::findOrFail($id);
+        $data->delete();
+        return redirect()->back();
+    }
 }
