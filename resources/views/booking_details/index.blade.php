@@ -25,7 +25,6 @@
           @csrf 
         <div class="row">
             <div class="col-md-12 col-lg-12" >
-
                 <div class="detail_form">
 
                   <h3>Add following products</h3>       
@@ -226,8 +225,10 @@
       <img alt="" src="images/mark/subaru.jpg"  style="padding-top:1rem; border-radius:10px" >
       <img alt="" src="images/mark/suzuki.jpg"  style="padding-top:1rem">
       <img alt="" src="images/mark/GMC.jpg" style="padding-top:1rem">
-       <img alt="" src="images/mark/toyota.png" style="padding-top:1rem">     
-      <img alt="" src="images/mark/honda.jpg"  style="padding-top:1rem">      
+       <img alt="" src="images/mark/toyota.png" style="padding-top:1rem">   
+       <div style="    border-radius:2rem!important; ">  
+      <img alt="" src="images/mark/honda.jpg"  style="padding-top:1rem ">      
+      </div>
     </div>
   </div>
 
