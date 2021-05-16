@@ -30,7 +30,7 @@
                   <h3>Add following products</h3>       
                    <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">   
-                          	<div class="md-checkbox has-warning" >
+                          	<div class="md-checkbox has-success" >
                               <input type="checkbox" id="checkbox1" class="md-check" >
                               <label for="checkbox1" >
                               <span></span>
@@ -43,7 +43,7 @@
 
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                          	<div class="md-checkbox has-warning">
+                          	<div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox2" class="md-check">
                               <label for="checkbox2">
                               <span></span>
@@ -56,7 +56,7 @@
                     
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                            <div class="md-checkbox has-warning">
+                            <div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox3" class="md-check">
                               <label for="checkbox3">
                               <span></span>
@@ -69,7 +69,7 @@
 
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                            <div class="md-checkbox has-warning">
+                            <div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox4" class="md-check">
                               <label for="checkbox4">
                               <span></span>
@@ -82,7 +82,7 @@
 
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                            <div class="md-checkbox has-warning">
+                            <div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox5" class="md-check">
                               <label for="checkbox5">
                               <span></span>
@@ -104,7 +104,7 @@
 
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                            <div class="md-checkbox has-warning">
+                            <div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox6" class="md-check">
                               <label for="checkbox6">
                               <span></span>
@@ -156,7 +156,7 @@
                     
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                            <div class="md-checkbox has-warning">
+                            <div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox11" class="md-check">
                               <label for="checkbox11">
                               <span></span>
@@ -182,7 +182,7 @@
 
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                            <div class="md-checkbox has-warning">
+                            <div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox12" class="md-check">
                               <label for="checkbox12">
                               <span></span>
@@ -196,7 +196,7 @@
 
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                            <div class="md-checkbox has-warning">
+                            <div class="md-checkbox has-success">
                               <input type="checkbox" id="checkbox13" class="md-check">
                               <label for="checkbox13">
                               <span></span>

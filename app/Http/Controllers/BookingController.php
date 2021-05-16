@@ -60,13 +60,14 @@ $details = [
     'body' => 'This is for testing email using smtp'
 ];
 
-Mail::to('newalexey2020@gmail.com',"dfgdfgdfgdfg")->send(new SendMail($details));
-return view('email_temps.booking');
+// Mail::to('newalexey2020@gmail.com',"dfgdfgdfgdfg")->send(new SendMail($details));
+// return view('email_temps.booking');
      
 
         $booking = new Booking();
 
         $booking->car_name = $request->car_name;
+Harry1995
 
         // $booking->pick_up = $request->pick_up;
 

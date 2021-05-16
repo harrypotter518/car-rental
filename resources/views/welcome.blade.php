@@ -55,7 +55,7 @@
 
         <div class="slide-text">
 
-          <h3>{{ widget(3)->extra_field_1 }} <a href="" class="typewrite" data-period="2000" data-type='[ "{{ widget(3)->extra_field_2 }}", "{{ widget(3)->extra_field_3 }}", "{{ widget(3)->extra_field_4 }}" ]'> <span class="wrap"></span> </a> </h3>
+          <h3>{{ widget(3)->extra_field_1 }} <a href="" class="typewrite"  style="color:white" data-period="2000" data-type='[ "{{ widget(3)->extra_field_2 }}", "{{ widget(3)->extra_field_3 }}", "{{ widget(3)->extra_field_4 }}" ]'> <span class="wrap"></span> </a> </h3>
 
           <h1>{{ widget(3)->extra_field_5 }}</h1>
 
@@ -1032,12 +1032,12 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 @endsection
 
 @push('js')
-{{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script> --}}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>
 {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>  --}}
 {{--  
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>  --}}
 {{--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDtbr0nWYojuUYsziBSrwImxVbWGoXdz8&libraries=places"></script>  --}}
-{{--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg9RZGIRNSbW-qUqnwCO46o6uIjNhXAz8&libraries=places"></script>  --}}
+ {{--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApJpdlBCkLdBB4tCldTne_fHh4j7oxBOI&libraries=places"></script>   --}}
 
 <script type="text/javascript" src="{{asset('js/welcome.js')}}"></script>
 @if(session()->has('message.added'))
