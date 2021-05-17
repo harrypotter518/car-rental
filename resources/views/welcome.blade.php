@@ -55,11 +55,12 @@
 
         <div class="slide-text">
 
-          <h3>{{ widget(3)->extra_field_1 }} <a href="" class="typewrite"  style="color:white" data-period="2000" data-type='[ "{{ widget(3)->extra_field_2 }}", "{{ widget(3)->extra_field_3 }}", "{{ widget(3)->extra_field_4 }}" ]'> <span class="wrap"></span> </a> </h3>
+          <h3>{{ widget(3)->extra_field_1 }}</h3>
+          {{--  <h3>{{ widget(3)->extra_field_1 }} <a href="" class="typewrite"  style="color:white" data-period="2000" data-type='[ "{{ widget(3)->extra_field_2 }}", "{{ widget(3)->extra_field_3 }}", "{{ widget(3)->extra_field_4 }}" ]'> <span class="wrap"></span> </a> </h3>  --}}
 
           <h1>{{ widget(3)->extra_field_5 }}</h1>
 
-          <p>{{ widget(3)->description }}</p>
+          {{--  <p>{{ widget(3)->description }}</p>  --}}
 
     
         </div>
@@ -251,12 +252,12 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
             <div class="col-md-3">
 
-              <h3  style="margin-top: 1vh;">{{$car->title}}</h3>
+              <h3  style="margin-top: 1vh;">{{$car->extra_field_1}}</h3>
 
-              <div class="subtitle"  style="padding-top: 3vh;">{{$car->extra_field_1}}</div>
+              <div class="subtitle"  style="padding-top: 3vh;">{{$car->title}}</div>
 
               <div class="carPrice"  style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
-              <div style="padding-top: 2vh;">Horsepower:<strong>{{$car->extra_field_4}}</strong></div>
+              <div style="padding-top: 2vh;" style="text-align:center"><strong>{{$car->extra_field_4}}</strong>&nbsp hp</div>
 
               <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}} </a> </div>
 
@@ -858,11 +859,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
     <!-- Dection Title -->
 
     <div class="section-title" >
-
-      <h3>{!!removeTags(widget(15)->extra_field_1)!!}</h3>
-
-      <p>{!!removeTags(widget(15)->description)!!}</p>
-
+      <h3 style="text-transform:capitalize">{!!removeTags(widget(15)->extra_field_1)!!}</h3>
     </div>
 
     

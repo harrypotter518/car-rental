@@ -56,12 +56,12 @@
 
             <div class="col-md-3">
 
-              <h3 style="margin-top: 1vh;">{{$car->title}}</h3>
+              <h3 style="margin-top: 1vh;">{{$car->extra_field_1}}</h3>
 
-              <div class="subtitle" style="padding-top: 3vh;">{{$car->extra_field_1}}</div>
+              <div class="subtitle" style="padding-top: 3vh;">{{$car->title}}</div>
 
               <div class="carPrice" style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
-              <div style="padding-top: 2vh;">Horsepower:<strong>{{$car->extra_field_4}}</strong></div>
+              <div style="padding-top: 2vh;"><strong>{{$car->extra_field_4}}</strong>&nbsp hp</div>
 
               <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}}</a> </div>
 
