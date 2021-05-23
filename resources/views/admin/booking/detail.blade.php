@@ -1,5 +1,13 @@
 @extends('admin.layouts.app')
 @section('content')
+
+<style>
+    td{
+        white-space:pre-line; 
+        {{--  word-break: break-all;  --}}
+    }
+</style>
+
 <div class="pcoded-content">
    <div class="pcoded-inner-content">
       <!-- Main-body start -->
@@ -69,6 +77,172 @@
                                         <tr>
                                             <td><i class="icofont icofont-id-card"></i> {{__('Drop-Off DateTime')}}:</td>
                                             <td class="text-right">{{$message->drop_off_datetime}}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td><i class="icofont icofont-id-card"></i> {{__('Drop-Off DateTime')}}:</td>
+                                            <td class="text-right">{{$message->country}}</td>
+                                        </tr>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>                            
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Payment')}} </h5>
+                            </div>
+                            <div class="card-block task-details">
+                                <table class="table table-border table-xs">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="icofont icofont-id-card"></i> {{__('Address')}}:</td>
+                                            <td class="text-right"><span class="f-right"><a> {{$message->address}}</a></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="ti-location"></i> {{__('City')}}:</td>
+                                            <td class="text-right">{{$message->city}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="ti-location"></i> {{__('State')}}:</td>
+                                            <td class="text-right">{{$message->state}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="ti-location"></i> {{__('Country')}}:</td>
+                                            <td class="text-right"><span class="f-right"><a> {{$message->country}}</a></span></td>
+                                        </tr>                                    
+
+                                        <tr>
+                                            <td><i class="icofont icofont-contrast"></i> {{__('Payment method')}}:</td>
+                                            @if ($message->payment_method == "COD")
+                                                <td class="text-right">Cash on Delivery</td>
+                                            @else
+                                                <td class="text-right">Paypal</td>
+                                            @endif
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-id-card"></i> {{__('Total Budget')}}:</td>
+                                            <td class="text-right">{{$message->grand_total}} US$</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>                            
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Add following products')}} </h5>
+                            </div>
+                            <div class="card-block task-details">
+                                <table class="table table-border table-xs">
+                                    <tbody>
+                                        @if($message->following_product_1 == "on")
+                                            <tr>
+                                                <td ><i class="icofont icofont-contrast"></i> {{__('Prepaid gas')}}</td>
+                                            </tr>
+                                        @endif 
+                                        
+                                        @if($message->following_product_2 == "on")
+                                            <tr>
+                                                <td><i class="icofont icofont-contrast"></i> {{__('Car wash')}}</td>
+                                            </tr>
+                                        @endif 
+
+                                        @if($message->following_product_3 == "on")
+                                            <tr>
+                                                <td><i class="icofont icofont-contrast"></i> {{__('iphone charger')}}</td>
+                                            </tr>
+                                        @endif 
+
+                                        @if($message->following_product_4 == "on")
+                                            <tr>
+                                                <td><i class="icofont icofont-contrast"></i> {{__('Android charger')}}</td>
+                                            </tr>
+                                        @endif 
+
+                                        @if($message->following_product_5 != null)
+                                            <tr>
+                                                <td>Delivery (we will deliver your shiny new vehicle to your desired location within 30 miles of Chicago</td>
+                                            </tr>
+                                        @endif 
+                                       
+                                        <tr>
+                                            <td><i class="ti-email"></i> {{__('Email Address')}}:</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-contrast"></i> {{__('Phone Number')}}:</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="ti-car"></i> {{__('Car')}}:</td>
+                                        <tr>
+                                            <td><i class="ti-location"></i> {{__('Pick Up')}}:</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-contrast"></i> {{__('Pick Up DateTime')}}:</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-id-card"></i> {{__('Drop-Off')}}:</td>
+                                        </tr>
+
+                                
+                            
+                                        
+                                    </tbody>
+                                </table>
+                            </div>                            
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Add insurances')}} </h5>
+                            </div>
+                            <div class="card-block task-details">
+                                <table class="table table-border table-xs">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="icofont icofont-contrast"></i> {{__('Name')}}:</td>
+                                            <td class="text-right"><span class="f-right"><a> {{$message->name}}</a></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="ti-email"></i> {{__('Email Address')}}:</td>
+                                            <td class="text-right">{{$message->email}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-contrast"></i> {{__('Phone Number')}}:</td>
+                                            <td class="text-right">{{$message->phone}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="ti-car"></i> {{__('Car')}}:</td>
+                                            <td class="text-right"><span class="f-right"><a> {{$message->car_name}}</a></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="ti-location"></i> {{__('Pick Up')}}:</td>
+                                            <td class="text-right">{{$message->pick_up}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-contrast"></i> {{__('Pick Up DateTime')}}:</td>
+                                            <td class="text-right">{{$message->pick_up_datetime}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-id-card"></i> {{__('Drop-Off')}}:</td>
+                                            <td class="text-right">{{$message->drop_off}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><i class="icofont icofont-id-card"></i> {{__('Drop-Off DateTime')}}:</td>
+                                            <td class="text-right">{{$message->drop_off_datetime}}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td><i class="icofont icofont-id-card"></i> {{__('Drop-Off DateTime')}}:</td>
+                                            <td class="text-right">{{$message->country}}</td>
                                         </tr>
                                         
                                         

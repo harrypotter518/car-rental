@@ -8,9 +8,7 @@
 
 <div class="pageTitle">
 
-  <div class="container">
-
-    
+  <div class="container">    
 
         <h1 class="page-heading">@if(isset(request()->keyword))
 
@@ -20,9 +18,7 @@
 
          {{__('All Cars')}}
 
-         @endif</h1>
-
-      
+         @endif</h1>      
 
   </div>
 
@@ -40,9 +36,7 @@
 
     <!-- Blog start -->
 
-    <div class="vehiclesList">
-
-      
+    <div class="vehiclesList">      
 
           @if(null!==($cars))
 
@@ -95,7 +89,6 @@
             <div class="col-md-3">
               <div class="carinfo">
                 <ul>
-                  <li>{{__('Features')}}</li>
                   @foreach($features as $feature)
                       {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
                       <li>{{$feature}}</li> 

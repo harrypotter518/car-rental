@@ -773,10 +773,13 @@ parallax-section {
     padding: 10px 20px;
     display: inline-block;
 } /*Banner Form*/
+
+
 .bformBox {
     background: #3c3e41;
     padding: 40px;
-    margin-top: -120px;
+    /* margin-top: -120px; */
+    margin-bottom: 30px;
     position: relative;
     z-index: 100;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
@@ -1941,9 +1944,9 @@ ul.orderlist li:before {
     background: #555;
     color: #ffffff;
 }
-#map {
+/* #map {
     pointer-events: none;
-}
+} */
 #map iframe {
     width: 100%;
     display: block;
@@ -2830,8 +2833,8 @@ blockquote:after {
 .detail_form{
     padding:2rem;
     margin-top: 1rem;
-    color:white;
-    background: #000;
+    color:black;
+    background: rgb(243, 243, 243);
     border-radius:2rem!important; 
     box-shadow: 0px 10px 10px rgba(0 0 0 /100%); 
 }

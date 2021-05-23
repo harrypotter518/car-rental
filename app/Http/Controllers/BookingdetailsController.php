@@ -12,7 +12,7 @@ use App\Models\ModulesData;
 
 use App\Models\Tags;
 
-
+use Illuminate\Support\Facades\DB;
 
 class BookingdetailsController extends Controller
 
@@ -74,7 +74,9 @@ class BookingdetailsController extends Controller
 //         $arr['archives'] = $this->lastThreeMonths();
 
         // return view('bookingdetails.index')->with($arr);
-        return view('booking_details.index');
+
+		$countries=DB::table('countries')->get();
+        return view('booking_details.index',compact('countries'));
 
     }   
 

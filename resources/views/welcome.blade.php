@@ -79,6 +79,75 @@
 
 <div class="container">
 
+  <div class="parallax-section" id="cars">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h3>{{widget(5)->extra_field_1}} <span>{{widget(5)->extra_field_2}}</span></h3>
+
+        {{--  <p>{{widget(5)->description}}</p>  --}}
+
+      </div>
+
+      <div class="vehiclesList">
+
+        <ul class="carsmodals owl-carousel">
+
+          @if(null!==(module(5))) 
+
+          @foreach(module(5) as $car) 
+
+          <li class="item">
+
+            <div class="row">
+
+              <div class="col-md-3">
+
+                <h3  style="margin-top: 1vh;">{{$car->extra_field_1}}</h3>
+
+                <div class="subtitle"  style="padding-top: 3vh;">{{$car->title}}</div>
+
+                <div class="carPrice"  style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
+                <div style="padding-top: 2vh;" style="text-align:center"><strong>{{$car->extra_field_4}}</strong>&nbsp hp</div>
+
+                <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}} </a> </div>
+
+              <div class="col-md-6"><a href="{{asset('images/'.$car->image)}}" class="image-popup"><img src="{{asset('images/'.$car->image)}}" alt="" /></a></div>
+
+              <div class="col-md-3">
+
+                <div class="carinfo">
+                  <ul>      
+                    <?php   $features = explode(',', $car->extra_field_5 ); ?>
+                    @foreach($features as $feature)
+                      {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
+                      <li>{{$feature}}</li> 
+                    @endforeach
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </li>
+
+          @endforeach
+
+          @endif
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
   <div class="bformBox" style="border-radius:2rem; box-shadow: 0px 10px 10px rgba(0 0 0 /100%);">
 
     <h3>{{widget(4)->extra_field_1}}</h3>
@@ -129,9 +198,9 @@
           <div class="formrow">
 
             <div class="input-group"> 
-              <span class="input-group-addon"  style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i>{{__('Pick-Up')}}</span>
+              <span class="input-group-addon"  style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i>{{__('Pick Up')}}</span>
 
-              <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Address')}}" value=""  style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" required="required" title="a. 111 W Wacker Drive (Free)
+              <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Pick Up Address')}}" value=""  style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" required="required" title="a. 111 W Wacker Drive (Free)
 b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
 
               <input type="hidden" name="pick_up_lat" id="pick_up_lat">
@@ -148,7 +217,8 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
           <div class="formrow">
 
-            <div class="input-group date form_datetime" data-date="2018-02-22T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+            {{--  <div class="input-group date form_datetime" data-date="2021-05-24T05:25:07Z" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">  --}}
+            <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
               <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="pick_up_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
 
@@ -160,6 +230,11 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
       </div>
 
+      <div class="row" >
+          <div style="color:#fefefe; margin-top:-10px;padding-left:2vw;"><input type="checkbox" class="checkbox" name="office_address" id="office_address" style="  transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
+          
+      </div>
+
       <div class="row">
 
         <div class="col-md-6 col-sm-6">
@@ -167,7 +242,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
           <div class="formrow">
 
             <div class="input-group"> 
-              <span class="input-group-addon" style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop-Off')}}</span>
+              <span class="input-group-addon" style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop Off')}}</span>
 
               <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="" style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" title="a. 111 W Wacker Drive (Free)
 b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
@@ -186,7 +261,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
           <div class="formrow">
 
-            <div class="input-group date form_datetime" data-date="2018-02-22T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+            <div class="input-group date form_datetime"  data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
               <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
 
@@ -215,85 +290,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
       </div>
 
     </form>
-
-    <a href="/booking_details" class="btn btn-default section-btn"  style="float:right; margin-top:-1vh">{{ widget(3)->extra_field_6 }}</a> 
   
-  </div>
-
-</div>
-
-
-
-
-
-<div class="parallax-section" id="cars">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h3>{{widget(5)->extra_field_1}} <span>{{widget(5)->extra_field_2}}</span></h3>
-
-      <p>{{widget(5)->description}}</p>
-
-    </div>
-
-    <div class="vehiclesList">
-
-      <ul class="carsmodals owl-carousel">
-
-        @if(null!==(module(5))) 
-
-        @foreach(module(5) as $car) 
-
-        <li class="item">
-
-          <div class="row">
-
-            <div class="col-md-3">
-
-              <h3  style="margin-top: 1vh;">{{$car->extra_field_1}}</h3>
-
-              <div class="subtitle"  style="padding-top: 3vh;">{{$car->title}}</div>
-
-              <div class="carPrice"  style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
-              <div style="padding-top: 2vh;" style="text-align:center"><strong>{{$car->extra_field_4}}</strong>&nbsp hp</div>
-
-              <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}} </a> </div>
-
-            <div class="col-md-6"><a href="{{asset('images/'.$car->image)}}" class="image-popup"><img src="{{asset('images/'.$car->image)}}" alt="" /></a></div>
-
-            <div class="col-md-3">
-
-              <div class="carinfo">
-
-        
-                <ul>
-                  <li><strong>{{__('Features')}}</strong></li>
-                  <?php   $features = explode(',', $car->extra_field_5 ); ?>
-                  @foreach($features as $feature)
-                    {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
-                    <li>{{$feature}}</li> 
-                  @endforeach
-
-                </ul>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </li>
-
-        @endforeach
-
-        @endif
-
-      </ul>
-
-    </div>
-
   </div>
 
 </div>
@@ -853,9 +850,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 <div id="contact">
 
   <div class="container"> 
-
-    
-
+  
     <!-- Dection Title -->
 
     <div class="section-title" >
@@ -1029,12 +1024,19 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 @endsection
 
 @push('js')
+<script type="text/javascript">
+  $(document).on('click', '#office_address', function(){
+    if ($('#office_address').is(':checked') == true) 
+    {
+      $("#pick_up").val("111 West Wacker Drive, Chicago, Illinois, USA");
+      $("#pick_up_lat").val("41.8865866");
+      $("#pick_up_lng").val("-87.6314066");
+    }
+    else
+       $("#pick_up").val("");
+  });
+</script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>
-{{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>  --}}
-{{--  
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>  --}}
-{{--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDtbr0nWYojuUYsziBSrwImxVbWGoXdz8&libraries=places"></script>  --}}
- {{--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApJpdlBCkLdBB4tCldTne_fHh4j7oxBOI&libraries=places"></script>   --}}
 
 <script type="text/javascript" src="{{asset('js/welcome.js')}}"></script>
 @if(session()->has('message.added'))

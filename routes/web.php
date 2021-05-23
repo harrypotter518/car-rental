@@ -96,6 +96,7 @@ Route::get('contact-us',[ContactusController::class, 'index'])->name('contact.in
 Route::post('contact-us',[ContactusController::class, 'store'])->name('contact.post');
 
 Route::post('booking',[BookingController::class, 'store'])->name('booking.post');
+Route::post('submit-checkout',[BookingController::class, 'submitcheckout'])->name('booking.submitcheckout');
 
 Route::post('news-letter',[NewsLetterController::class, 'store'])->name('newsletter.post');
 
