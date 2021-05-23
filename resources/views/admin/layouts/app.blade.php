@@ -202,13 +202,13 @@
 
       </div>
 
-      <script type="text/javascript" src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
-    <script type="text/javascript" src="{{asset('admin/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('admin/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
 
-    <script type="text/javascript" src="{{asset('admin/bower_components/tether/dist/js/tether.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('admin/bower_components/tether/dist/js/tether.min.js')}}"></script>
 
-    <script type="text/javascript" src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+   <script type="text/javascript" src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
     <!-- jquery slimscroll js -->
 

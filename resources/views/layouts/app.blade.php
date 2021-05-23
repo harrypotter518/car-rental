@@ -23,7 +23,6 @@
 
     <meta name="keywords" content="one page, html, template, car, car rental, taxi, cab, booking, responsive, business">
 
-    <meta name="author" content="sharjeel anjum">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
