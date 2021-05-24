@@ -803,6 +803,7 @@ parallax-section {
 .bformBox .formrow .form-control {
     height: auto;
     padding: 10px 15px;
+
     font-size: 22px;
     border-color: #ddd;
     box-shadow: none;
@@ -932,6 +933,17 @@ parallax-section {
     line-height: 48px;
 }
 .carPrice span {
+    font-size: 14px;
+    vertical-align: top;
+    color: #999;
+    display: inline-block;
+    margin-top: 5px;
+}
+.horsepower strong {
+    font-size: 32px;
+    line-height: 32px;
+}
+.horsepower span {
     font-size: 14px;
     vertical-align: top;
     color: #999;
@@ -2586,6 +2598,11 @@ blockquote:after {
     }
 }
 @media (max-width: 990px) {
+    .bformBox .formrow .form-control
+    {
+        font-size:1rem;
+    }
+    
     h1 {
         font-size: 52px;
     }
@@ -2762,6 +2779,10 @@ blockquote:after {
     .vehiclesList ul li .carPrice {
         text-align: center;
     }
+
+    .vehiclesList ul li .horsepower {
+        text-align: center;
+    }
     .vehiclesList ul li .subtitle:after {
         left: 50%;
         margin-left: -20px;
@@ -2815,11 +2836,16 @@ blockquote:after {
         font-size: 12px;
         letter-spacing: 2px;
     }
+    .bformBox .formrow .form-control
+    {
+        font-size:1rem;
+    }
 }
 @media (max-width: 350px) {
     #about .team-wrapper .team-desc {
         padding-top: 14em;
     }
+    
 }
 
 

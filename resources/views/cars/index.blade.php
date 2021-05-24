@@ -38,7 +38,7 @@
 
     <div class="vehiclesList">      
 
-          @if(null!==($cars))
+        @if(null!==($cars))
 
           <ul class="carslisting">
 
@@ -55,37 +55,36 @@
               <div class="subtitle" style="padding-top: 3vh;">{{$car->title}}</div>
 
               <div class="carPrice" style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
-              <div style="padding-top: 2vh;"><strong>{{$car->extra_field_4}}</strong>&nbsp hp</div>
+              <div class="horsepower" style="padding-top: 5vh;"><strong>{{$car->extra_field_4}}</strong>&nbsp; hp</div>
 
               <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}}</a> </div>
 
             <div class="col-md-6">
 
-        <div class="carimages owl-carousel">
+              <div class="carimages owl-carousel">
 
-        @if($car->images!='')  
+              @if($car->images!='')  
 
-        <?php
-          $images = explode(',', $car->images); 
-          $features = explode(',', $car->extra_field_5 );
-        ?>
+                <?php
+                  $images = explode(',', $car->images); 
+                  $features = explode(',', $car->extra_field_5 );
+                ?>
 
-        @if(null!==($images))
+                @if(null!==($images))
 
-        @foreach($images as $img)
+                  @foreach($images as $img)
 
-          <div class="item" style="padding-top: 1vh;"><a href="{{asset('images/'.$img)}}" class="image-popup"><img src="{{asset('images/'.$img)}}" alt="" /></a></div>
+                    <div class="item" style="padding-top: 1vh;"><a href="{{asset('images/'.$img)}}" class="image-popup"><img src="{{asset('images/'.$img)}}" alt="" /></a></div>
 
-        @endforeach
+                  @endforeach
 
-        @endif
+                @endif
 
-        @endif      
+              @endif      
 
-          </div>
+              </div>
 
-        </div>
-
+            </div>
             <div class="col-md-3">
               <div class="carinfo">
                 <ul>
@@ -97,18 +96,13 @@
               </div>
             </div>
           </div>
-
         </li>
             @endforeach
-          </ul>
+      </ul>
 
-          @endif
+      @endif     
 
-          
-
-        </div>
-
-        
+    </div>
 
         <!-- Pagination -->
 
@@ -172,139 +166,139 @@
 
         <div class="container">
 
-  <div class="bformBox carbookext">
+          <div class="bformBox carbookext">
 
-    <h3>{{widget(4)->extra_field_1}}</h3>
+            <h3>{{widget(4)->extra_field_1}}</h3>
 
-    <form action="{{route('booking.post')}}" method="POST">
+            <form action="{{route('booking.post')}}" method="POST">
 
-      @csrf
+              @csrf
 
-      <div class="formrow">
+              <div class="formrow">
 
-        {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required')) !!}
+                {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required')) !!}
 
-        {!! APFrmErrHelp::showErrors($errors, 'car_name') !!}
+                {!! APFrmErrHelp::showErrors($errors, 'car_name') !!}
 
-      </div>
+              </div>
 
-      <div class="row">
+              <div class="row">
 
-        <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-6">
 
-          <div class="formrow">
+                  <div class="formrow">
 
-            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Pick-Up')}} </span>
+                    <div class="input-group"> <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Pick Up')}} </span>
 
-             <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Address')}}" value="" required="required">
+                    <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Pick Up Address')}}" value="" required="required">
 
-             <input type="hidden" name="pick_up_lat" id="pick_up_lat">
+                    <input type="hidden" name="pick_up_lat" id="pick_up_lat">
 
-             <input type="hidden" name="pick_up_lng" id="pick_up_lng">
+                    <input type="hidden" name="pick_up_lng" id="pick_up_lng">
 
-            </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+
+                  <div class="formrow">
+
+                    <div class="input-group date form_datetime"  data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
+
+                      <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="pick_up_datetime" required >
+
+                      <span class="input-group-addon"><i class="fas fa-calendar"></i></span> </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-6 col-sm-6">
+
+                  <div class="formrow">
+
+                    <div class="input-group"> <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop Off')}}</span>
+
+                      <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="">
+
+                      <input type="hidden" name="drop_off_lat" id="drop_off_lat">
+
+                    <input type="hidden" name="drop_off_lng" id="drop_off_lng">
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+
+                  <div class="formrow">
+
+                    <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
+
+                      <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="drop_off_datetime" required >
+
+                      <span class="input-group-addon"><i class="fas fa-calendar"></i></span> </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-4 col-sm-4">
+
+                  <div class="formrow">
+
+                    <input type="text" class="form-control" placeholder="{{__('Your Name')}}" name="name" required >
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+
+                  <div class="formrow">
+
+                    <input type="email" class="form-control" placeholder="{{__('Your Email')}}" name="email" required>
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+
+                  <div class="formrow">
+
+                    <input type="number" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="formbtn">
+
+                <input type="submit" class="btn" value="{{widget(4)->extra_field_2}}">
+
+              </div>
+
+            </form>
 
           </div>
 
         </div>
-
-        <div class="col-md-6 col-sm-6">
-
-          <div class="formrow">
-
-            <div class="input-group date form_datetime" data-date="2018-02-22T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-
-              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="pick_up_datetime" required >
-
-              <span class="input-group-addon"><i class="fas fa-calendar"></i></span> </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-md-6 col-sm-6">
-
-          <div class="formrow">
-
-            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop-Off')}}</span>
-
-              <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="">
-
-              <input type="hidden" name="drop_off_lat" id="drop_off_lat">
-
-             <input type="hidden" name="drop_off_lng" id="drop_off_lng">
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="col-md-6 col-sm-6">
-
-          <div class="formrow">
-
-            <div class="input-group date form_datetime" data-date="2018-02-22T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-
-              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="drop_off_datetime" required >
-
-              <span class="input-group-addon"><i class="fas fa-calendar"></i></span> </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="text" class="form-control" placeholder="{{__('Your Name')}}" name="name" required >
-
-          </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="email" class="form-control" placeholder="{{__('Your Email')}}" name="email" required>
-
-          </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="formbtn">
-
-        <input type="submit" class="btn" value="{{widget(4)->extra_field_2}}">
-
-      </div>
-
-    </form>
-
-  </div>
-
-</div>
 
       </div>
 
@@ -313,17 +307,10 @@
   </div>
 
 </div>
-
-
-
 <!-- Inner Content Start --> 
-
 @endsection
 
-
-
 @push('js')
-
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>
 <script type="text/javascript" src="{{asset('js/cars.js')}}"></script>
 @if(session()->has('message.added'))

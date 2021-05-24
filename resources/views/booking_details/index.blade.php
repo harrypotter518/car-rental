@@ -98,7 +98,7 @@
                             <div style="padding-left:3rem">
                               <div style="padding-bottom:1rem"> a. 100 dollars </div>
                               <div class="form-group form-md-line-input has-info" id="input5" style="display:none">
-                                <input type="text" class="form-control" id="checkbox5_input" name="checkbox5_input" placeholder="Please enter address">
+                                <input type="text" class="form-control" id="checkbox5_input" name="checkbox5_input" placeholder="Please enter address" required>
                                 <label for="checkbox5_input">Address:</label>
                               </div>
                             </div>
@@ -143,7 +143,7 @@
                               </div>
 
                               <div class="form-group form-md-line-input has-info"  id="input6" style="display:none">
-                                <input type="text" class="form-control" id="checkbox6_input" name="checkbox6_input" placeholder="Please enter address">
+                                <input type="text" class="form-control" id="checkbox6_input" name="checkbox6_input" placeholder="Please enter address" required>
                                 <label for="checkbox6_input">Address:</label>
                               </div>
                             </div>
@@ -170,13 +170,13 @@
                         </div>
                         <div class="col-md-4 col-sm-4" id="input11_1" style="display:none; padding-left:5vw">
                             <div class="form-group form-md-line-input has-info">
-                              <input type="text" class="form-control" id="checkbox11_company" name="checkbox11_company" placeholder="Please enter company name">
+                              <input type="text" class="form-control" id="checkbox11_company" name="checkbox11_company" placeholder="Please enter company name" required>
                               <label for="checkbox11_company">Company name:</label>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4" id="input11_2" style="display:none">
                             <div class="form-group form-md-line-input has-info">     
-                              <input type="text" class="form-control" id="checkbox11_policy" name= "checkbox11_policy" placeholder="Please enter policy number">
+                              <input type="text" class="form-control" id="checkbox11_policy" name= "checkbox11_policy" placeholder="Please enter policy number" required>
                               <label for="checkbox11_policy">Policy number</label>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                 <div class="detail_form" >
 
                   <h3>Payment</h3>     
-                    {{--  <form action="{{ route('booking.submitcheckout') }}" method="post" class="form-horizontal">                        --}}
+
                     <div class="row" style="padding-bottom:1vh;">
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group form-md-radios" id="payment_type" style="display:block;">                           
@@ -230,10 +230,10 @@
                                     <span></span>
                                     <span class="check"></span>
                                     <span class="box"></span>
-                                    Cash on delivery </label>
+                                    Cash on delivery &emsp;</label>
                                   </div>
                                   <div class="md-radio" >
-                                    <input type="radio" id="radio12" name="payment_method" value="Paypal" class="md-radiobtn" >
+                                    <input type="radio" id="radio12" name="payment_method" value="Paypal" class="md-radiobtn" disabled>
                                     <label for="radio12">
                                     <span></span>
                                     <span class="check"></span>
@@ -245,7 +245,7 @@
                         </div>
                     </div>
                     <div class="row" >
-                      <h3 >Total :<strong id="total_budget">{{ $car_price }} </strong>USD</h3>
+                      <h3 >&emsp;Total :&emsp;<strong id="total_budget">{{ $car_price }} </strong>USD</h3>
                       <input type="hidden" id="total_budget" name= "total_budget" value="{{ $car_price }}">
                       <input type="hidden" id="totalDays" value="{{ $totalDaysDiff}}">
                       <input type="hidden" id="car_name" name="car_name" value="{{ $booking_data['car_name']}}">
@@ -268,41 +268,45 @@
                               <input type="hidden" name="_token" value="{{csrf_token()}}">
                               <legend>Billing To</legend>
                               <div class="form-group">
-                                  <input type="text" class="form-control" name="billing_name" id="billing_name" value="" placeholder="Billing Name">
+                                  <input type="text" class="form-control" name="billing_name" id="billing_name" value="" placeholder="Billing Name" required>
                                   {{--  <span class="text-danger">asd</span>  --}}
                               </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control" value="" name="billing_address" id="billing_address" placeholder="Billing Address">
+                                  <input type="text" class="form-control" value="" name="billing_address" id="billing_address" placeholder="Billing Address" required>
                                   {{--  <span class="text-danger">{{$errors->first('billing_address')}}</span>  --}}
                               </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control" name="billing_city" value="" id="billing_city" placeholder="Billing City">
+                                  <input type="text" class="form-control" name="billing_city" value="" id="billing_city" placeholder="Billing City" required>
                                   {{--  <span class="text-danger">{{$errors->first('billing_city')}}</span>  --}}
                               </div>
                               <div class="form-group ">
-                                  <input type="text" class="form-control" name="billing_state" value="" id="billing_state" placeholder=" Billing State">
+                                  <input type="text" class="form-control" name="billing_state" value="" id="billing_state" placeholder=" Billing State" required>
                                   {{--  <span class="text-danger">{{$errors->first('billing_state')}}</span>  --}}
                               </div>
                               <div class="form-group">
-                                  <select name="billing_country" id="billing_country" class="form-control">
+                                  <select name="billing_country" id="billing_country" class="form-control" >
                                       @foreach($countries as $country)
                                           <option value="{{$country->country_name}}">{{$country->country_name}}</option>
                                       @endforeach
                                   </select>
                               </div>
-                              <div class="form-group ">
-                                  <input type="text" class="form-control" name="billing_pincode" value="" id="billing_pincode" placeholder=" Billing Pincode">
-                                  {{--  <span class="text-danger">{{$errors->first('billing_pincode')}}</span>  --}}
-                              </div>
+                              {{-- <div class="form-group ">
+                                  <input type="text" class="form-control" name="billing_pincode" value="" id="billing_pincode" placeholder=" Billing Pincode" required>                                                             
+                              </div> --}}
                               <div class="form-group">
-                                  <input type="text" class="form-control" name="billing_phonenumber" value="" id="billing_phonenumber" placeholder="Billing Phonenumber">
+                                  <input type="number" class="form-control" name="billing_phonenumber" value="" id="billing_phonenumber" placeholder="Billing Phonenumber" required>
                                   {{--  <span class="text-danger">{{$errors->first('billing_phonenumber')}}</span>  --}}
                               </div>
-
-                              <span>
-                                  <input type="checkbox" class="checkbox" name="checkme" id="checkme">Shipping Address same as Billing Address
-                              </span>
-                          </div><!--/login form-->
+                      
+                              <div class="md-checkbox">
+                                <input type="checkbox" id="checkme" name="checkme" class="md-check">
+                                <label for="checkme">
+                                <span></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                Shipping Address same as Billing Address
+                              </div>
+                          </div>
                       </div>
                       <div class="col-sm-1">
 
@@ -311,19 +315,19 @@
                           <div class="signup-form"><!--sign up form-->
                               <legend>Shipping To</legend>
                               <div class="form-group {{$errors->has('shipping_name')?'has-error':''}}">
-                                  <input type="text" class="form-control" name="shipping_name" id="shipping_name" value="" placeholder="Shipping Name">
+                                  <input type="text" class="form-control" name="shipping_name" id="shipping_name" value="" placeholder="Shipping Name" required> 
                                   <span class="text-danger">{{$errors->first('shipping_name')}}</span>
                               </div>
                               <div class="form-group {{$errors->has('shipping_address')?'has-error':''}}">
-                                  <input type="text" class="form-control" value="" name="shipping_address" id="shipping_address" placeholder="Shipping Address">
+                                  <input type="text" class="form-control" value="" name="shipping_address" id="shipping_address" placeholder="Shipping Address" required> 
                                   <span class="text-danger">{{$errors->first('shipping_address')}}</span>
                               </div>
                               <div class="form-group {{$errors->has('shipping_city')?'has-error':''}}">
-                                  <input type="text" class="form-control" name="shipping_city" value="" id="shipping_city" placeholder="Shipping City">
+                                  <input type="text" class="form-control" name="shipping_city" value="" id="shipping_city" placeholder="Shipping City" required>
                                   <span class="text-danger">{{$errors->first('shipping_city')}}</span>
                               </div>
                               <div class="form-group {{$errors->has('shipping_state')?'has-error':''}}">
-                                  <input type="text" class="form-control" name="shipping_state" value="" id="shipping_state" placeholder="Shipping State">
+                                  <input type="text" class="form-control" name="shipping_state" value="" id="shipping_state" placeholder="Shipping State" required>
                                   <span class="text-danger">{{$errors->first('shipping_state')}}</span>
                               </div>
                               <div class="form-group">
@@ -333,16 +337,15 @@
                                       @endforeach
                                   </select>
                               </div>
-                              <div class="form-group {{$errors->has('shipping_pincode')?'has-error':''}}">
-                                  <input type="text" class="form-control" name="shipping_pincode" value="" id="shipping_pincode" placeholder="Shipping Pincode">
+                              {{-- <div class="form-group {{$errors->has('shipping_pincode')?'has-error':''}}">
+                                  <input type="text" class="form-control" name="shipping_pincode" value="" id="shipping_pincode" placeholder="Shipping Pincode" required>
                                   <span class="text-danger">{{$errors->first('shipping_pincode')}}</span>
-                              </div>
+                              </div> --}}
                               <div class="form-group {{$errors->has('shipping_phonenumber')?'has-error':''}}">
-                                  <input type="text" class="form-control" name="shipping_phonenumber" value="" id="shipping_phonenumber" placeholder="Shipping Phonenumber">
+                                  <input type="number" class="form-control" name="shipping_phonenumber" value="" id="shipping_phonenumber" placeholder="Shipping Phonenumber" required>
                                   <span class="text-danger">{{$errors->first('shipping_phonenumber')}}</span>
-                              </div>
-                              {{--  <button type="submit" class="btn btn-primary" style="float: right;">CheckOut</button>  --}}
-                          </div><!--/sign up form-->
+                              </div>                             
+                          </div>
                       </div>
                   </div>
                   {{--  </form>  --}}

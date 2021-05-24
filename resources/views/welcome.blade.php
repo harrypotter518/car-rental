@@ -59,9 +59,7 @@
           {{--  <h3>{{ widget(3)->extra_field_1 }} <a href="" class="typewrite"  style="color:white" data-period="2000" data-type='[ "{{ widget(3)->extra_field_2 }}", "{{ widget(3)->extra_field_3 }}", "{{ widget(3)->extra_field_4 }}" ]'> <span class="wrap"></span> </a> </h3>  --}}
 
           <h1>{{ widget(3)->extra_field_5 }}</h1>
-
           {{--  <p>{{ widget(3)->description }}</p>  --}}
-
     
         </div>
 
@@ -110,7 +108,7 @@
                 <div class="subtitle"  style="padding-top: 3vh;">{{$car->title}}</div>
 
                 <div class="carPrice"  style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
-                <div style="padding-top: 2vh;" style="text-align:center"><strong>{{$car->extra_field_4}}</strong>&nbsp hp</div>
+                <div class="horsepower" style="padding-top: 5vh;" ><strong>{{$car->extra_field_4}}</strong>&nbsp; hp</div>
 
                 <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}} </a> </div>
 
@@ -184,7 +182,7 @@
 
           <div class="formrow">
 
-            <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
+            <input type="number" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
 
           </div>
 
@@ -220,7 +218,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
             {{--  <div class="input-group date form_datetime" data-date="2021-05-24T05:25:07Z" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">  --}}
             <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
-              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="pick_up_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
+              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date/Time')}}" name="pick_up_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
 
               <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
 
@@ -263,7 +261,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
             <div class="input-group date form_datetime"  data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
-              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
+              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
 
               <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
 
