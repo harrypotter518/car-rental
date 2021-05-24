@@ -89,6 +89,108 @@
                                 </table>
                             </div>                            
                         </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Add following products')}} </h5>
+                            </div>
+                            <div class="card-block task-details">
+                                <table class="table table-border table-xs">
+                                    <tbody>
+                                        @if($message->following_product_1 == "on")
+                                            <tr>
+                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Prepaid gas')}}</td>
+                                            </tr>
+                                        @endif 
+                                        
+                                        @if($message->following_product_2 == "on")
+                                            <tr>
+                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Car wash')}}</td>
+                                            </tr>
+                                        @endif 
+
+                                        @if($message->following_product_3 == "on")
+                                            <tr>
+                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('iphone charger')}}</td>
+                                            </tr>
+                                        @endif 
+
+                                        @if($message->following_product_4 == "on")
+                                            <tr>
+                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Android charger')}}</td>
+                                            </tr>
+                                        @endif 
+
+                                        @if($message->following_product_5 != null)
+                                            <tr>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i>Delivery (we will deliver your shiny new vehicle to your desired location within 30 miles of Chicago)
+                                                    <br>&emsp; a. 100 dollars
+                                                    <br>&emsp; Address:{{$message->following_product_5}}
+                                                </td>
+                                            </tr>
+                                        @endif 
+
+                                         @if($message->following_product_6 != null)
+                                            <tr>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i>Pick up (we will pick up the vehicle from your desired location within 30 miles of Chicago)
+                                                    <br>&emsp; a. 100 dollars
+                                                    <br>&emsp;  PIck up same as delivery:{{$message->following_product_6}}
+                                                </td>
+                                            </tr>
+                                        @endif 
+                                    </tbody>
+                                </table>
+                            </div>                            
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Add insurances')}} </h5>
+                            </div>
+                            <div class="card-block task-details">
+                                <table class="table table-border table-xs">
+                                    <tbody>
+                                        @if($message->insurance_1 != null)
+                                        <?php
+                                            $str = explode(",", $message->insurance_1 );                                            
+                                        ?>
+                                            <tr>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i> I have my own physical damage and liability insurance, for example, through my credit card company
+                                                    <br> &emsp; Company Name : {{ $str[0] }}
+                                                    <br> &emsp; Policy Number : {{ $str[1] }}
+                                                </td>
+                                            </tr>
+                                        @endif 
+                                        
+                                        @if($message->insurance_2 == "on")
+                                            <tr>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i>I have liability insurance but would like to buy comprehensive physical damage insurance for peace of mind
+                                                    <br>&emsp; a. 18 dollars/day
+                                                </td>
+                                            </tr>
+                                        @endif 
+
+                                        @if($message->insurance_3 == "on")
+                                            <tr>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i>3. I do not have liability or physical damage insurance to my knowledge
+                                                    <br>&emsp; a. Automatic response: unfortunately we cannot rent cars to drivers without liability insurance
+                                                </td>
+                                            </tr>
+                                        @endif 
+                                    </tbody>
+                                </table>
+                            </div>                            
+                        </div>
+                        
+                    </div>
+                    <!-- Task-detail-right start -->
+                    <!-- Task-detail-left start -->
+                    <div class="col-xl-6 col-lg-12">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Payment')}} </h5>
@@ -133,134 +235,12 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Add following products')}} </h5>
-                            </div>
-                            <div class="card-block task-details">
-                                <table class="table table-border table-xs">
-                                    <tbody>
-                                        @if($message->following_product_1 == "on")
-                                            <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Prepaid gas')}}</td>
-                                            </tr>
-                                        @endif 
-                                        
-                                        @if($message->following_product_2 == "on")
-                                            <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Car wash')}}</td>
-                                            </tr>
-                                        @endif 
-
-                                        @if($message->following_product_3 == "on")
-                                            <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('iphone charger')}}</td>
-                                            </tr>
-                                        @endif 
-
-                                        @if($message->following_product_4 == "on")
-                                            <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Android charger')}}</td>
-                                            </tr>
-                                        @endif 
-
-                                        @if($message->following_product_5 != null)
-                                            <tr>
-                                                <td class="text-left">
-                                                    <i class="icofont icofont-contrast"></i>Delivery (we will deliver your shiny new vehicle to your desired location within 30 miles of Chicago)
-                                                    <br>a. 100 dollars
-                                                    <br> Address:{{$message->following_product_5}}
-                                                </td>
-                                            </tr>
-                                        @endif 
-
-                                         @if($message->following_product_6 != null)
-                                            <tr>
-                                                <td class="text-left">
-                                                    <i class="icofont icofont-contrast"></i>Pick up (we will pick up the vehicle from your desired location within 30 miles of Chicago)
-                                                    <br>a. 100 dollars
-                                                    <br> PIck up same as delivery:{{$message->following_product_6}}
-                                                </td>
-                                            </tr>
-                                        @endif 
-                                    </tbody>
-                                </table>
-                            </div>                            
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-header-text"><i class="icofont icofont-ui-note m-r-10"></i> {{__('Add insurances')}} </h5>
-                            </div>
-                            <div class="card-block task-details">
-                                <table class="table table-border table-xs">
-                                    <tbody>
-                                        @if($message->insurance_1 != null)
-                                        <?php
-                                            
-                                            
-                                        ?>
-                                            <tr>
-                                                <td class="text-left">
-                                                    <i class="icofont icofont-contrast"></i> I have my own physical damage and liability insurance, for example, through my credit card company
-                                                    <br>Company Name : {{  }}
-                                                    <br>Policy Number : {{  }}
-                                                </td>
-                                            </tr>
-                                        @endif 
-                                        
-                                        @if($message->following_product_2 == "on")
-                                            <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Car wash')}}</td>
-                                            </tr>
-                                        @endif 
-
-                                        @if($message->following_product_3 == "on")
-                                            <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('iphone charger')}}</td>
-                                            </tr>
-                                        @endif 
-
-                                        @if($message->following_product_4 == "on")
-                                            <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Android charger')}}</td>
-                                            </tr>
-                                        @endif 
-
-                                        @if($message->following_product_5 != null)
-                                            <tr>
-                                                <td class="text-left">
-                                                    <i class="icofont icofont-contrast"></i>Delivery (we will deliver your shiny new vehicle to your desired location within 30 miles of Chicago)
-                                                    <br>a. 100 dollars
-                                                    <br> Address:{{$message->following_product_5}}
-                                                </td>
-                                            </tr>
-                                        @endif 
-
-                                         @if($message->following_product_6 != null)
-                                            <tr>
-                                                <td class="text-left">
-                                                    Pick up (we will pick up the vehicle from your desired location within 30 miles of Chicago)
-                                                    <br>a. 100 dollars
-                                                    <br> PIck up same as delivery:{{$message->following_product_6}}
-                                                </td>
-                                            </tr>
-                                        @endif 
-                                    </tbody>
-                                </table>
-                            </div>                            
-                        </div>
-                        
-                    </div>
-                    <!-- Task-detail-right start -->
-                    <!-- Task-detail-left start -->
-                    <div class="col-xl-6 col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
                                 <h5><i class="icofont icofont-tasks-alt m-r-5"></i> {{__('Pick Up')}}</h5>
                             </div>
                             <div class="card-block">
                                 <div class="">
                                     <div class="m-b-20">
-                                        <iframe src="https://maps.google.it/maps?q={{urlencode(strip_tags($message->pick_up))}}&output=embed" height="300" width="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                                         
+                                        <iframe src="https://maps.google.it/maps?q={{urlencode(strip_tags($message->pick_up))}}&output=embed" height="400" width="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                                         
                                     </div>
                                 </div>
                             </div>
@@ -274,7 +254,7 @@
                             <div class="card-block">
                                 <div class="">
                                     <div class="m-b-20">
-                                        <iframe src="https://maps.google.it/maps?q={{urlencode(strip_tags($message->drop_off))}}&output=embed" height="300" width="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> 
+                                        <iframe src="https://maps.google.it/maps?q={{urlencode(strip_tags($message->drop_off))}}&output=embed" height="400" width="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> 
                                        
                                     </div>                                    
                                 </div>

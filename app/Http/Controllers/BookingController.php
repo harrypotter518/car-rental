@@ -53,31 +53,18 @@ class BookingController extends Controller
         // return view('email_temps.booking');
 
         // $booking = new Booking();
-
         // $booking->car_name = $request->car_name;
-
         // $booking->pick_up = $request->pick_up;
-
         // $booking->pick_up_lat = $request->pick_up_lat;
-
         // $booking->pick_up_lng = $request->pick_up_lng;
-
         // $booking->pick_up_datetime = $request->pick_up_datetime;
-
         // $booking->drop_off = $request->drop_off;
-
         // $booking->drop_off_lat = $request->drop_off_lat;
-
         // $booking->drop_off_lng = $request->drop_off_lng;
-
         // $booking->drop_off_datetime = $request->drop_off_datetime;
-
         // $booking->name = $request->name;
-
         // $booking->email = $request->email;
-
         // $booking->phone = $request->phone;
-
         // $booking->save();
 
         //Mail::send(new BookingACar($booking));
@@ -173,19 +160,19 @@ class BookingController extends Controller
             $booking->following_product_5 = $request->checkbox5_input;
         else
             $booking->following_product_5 = $request->checkbox5;
-
+              
         if ($request->checkbox6 == "on")
-            $booking->following_product_6 = $request->checkbox6_input;
-        else
-            $booking->following_product_6 = $request->checkbox6;
-       
-        if ($request->checkbox11 == "on")
         {
             if ($request->radio_pick == "yes")
-                $booking->insurance_1 = "yes";
+                $booking->following_product_6 = "yes";
             else
-                $booking->insurance_1 = $request->checkbox11_company.",".$request->checkbox11_policy;
+                $booking->following_product_6 = $request->checkbox6_input;
         }
+        else
+            $booking->following_product_6 = $request->checkbox6;
+
+        if ($request->checkbox11 == "on")      
+            $booking->insurance_1 = $request->checkbox11_company.",".$request->checkbox11_policy;      
         else
             $booking->insurance_1 = $request->checkbox11;
         $booking->insurance_2 = $request->checkbox12;
