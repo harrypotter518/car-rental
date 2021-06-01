@@ -136,12 +136,12 @@ class BookingController extends Controller
             'billing_state' => 'required',
             // 'billing_pincode' => 'required',
             'billing_phonenumber' => 'required',
-            'shipping_name' => 'required',
-            'shipping_address' => 'required',
-            'shipping_city' => 'required',
-            'shipping_state' => 'required',
+            // 'shipping_name' => 'required',
+            // 'shipping_address' => 'required',
+            // 'shipping_city' => 'required',
+            // 'shipping_state' => 'required',
             // 'shipping_pincode' => 'required',
-            'shipping_phonenumber' => 'required',
+            // 'shipping_phonenumber' => 'required',
         ]);
         $input_data = $request->all();
 

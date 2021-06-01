@@ -19,7 +19,7 @@
       <img alt="" src="images/mark/mazda.jpg" style="padding-top:1rem">
       <img alt="" src="images/mark/chrysler.jpg" style="padding-top:1rem">
       <img alt="" src="images/mark/wagen.jpg" style="padding-top:1rem">
-       <img alt="" src="images/mark/volvo.jpg"  style="padding-top:1rem">
+      <img alt="" src="images/mark/volvo.jpg"  style="padding-top:1rem">
     </div>  --}}
     <div class="container">
     {{--  <form action="#" method="POST">  --}}
@@ -118,6 +118,9 @@
                             <div style="padding-left:3rem">
                               <div style="padding-bottom:1rem"> a. 100 dollars </div>
                               <div class="form-group form-md-line-input has-info" id="input5" style="display:none">
+
+                               <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Pick Up Address')}}">
+
                                 <input type="text" class="form-control" id="checkbox5_input" name="checkbox5_input" placeholder="Please enter address" >
                                 <label for="checkbox5_input">Address:</label>
                               </div>
@@ -227,7 +230,7 @@
                               <span class="box"></span>
                             3. I do not have liability or physical damage insurance to my knowledge </label>
                             </div>
-                            <div style="padding-left:3rem">a. Automatic response: unfortunately we cannot rent cars to drivers without liability insurance</div>
+                            <div style="padding-left:3rem; display:none" id="checkbox13_description">a. Automatic response: unfortunately we cannot rent cars to drivers without liability insurance</div>
                       </div>
                     </div> 
 
@@ -253,7 +256,7 @@
                                     Cash on delivery &emsp;</label>
                                   </div>
                                   <div class="md-radio" >
-                                    <input type="radio" id="radio12" name="payment_method" value="Paypal" class="md-radiobtn" disabled>
+                                    <input type="radio" id="radio12" name="payment_method" value="Paypal" class="md-radiobtn">
                                     <label for="radio12">
                                     <span></span>
                                     <span class="check"></span>
@@ -283,7 +286,7 @@
                     </div>
                 
                   <div class= "row">
-                      <div class="col-sm-5 col-sm-offset-1">
+                      <div class="col-sm-8 col-sm-offset-1">
                           <div class="login-form"><!--login form-->
                               <input type="hidden" name="_token" value="{{csrf_token()}}">
                               <h4>Billing To</h4>
@@ -318,20 +321,18 @@
                                   {{--  <span class="text-danger">{{$errors->first('billing_phonenumber')}}</span>  --}}
                               </div>
                       
-                              <div class="md-checkbox">
+                              {{--  <div class="md-checkbox">
                                 <input type="checkbox" id="checkme" name="checkme" class="md-check">
                                 <label for="checkme">
                                 <span></span>
                                 <span class="check"></span>
                                 <span class="box"></span>
                                 Shipping Address same as Billing Address
-                              </div>
+                              </div>  --}}
                           </div>
-                      </div>
-                      <div class="col-sm-1">
+                      </div>                   
 
-                      </div>
-                      <div class="col-sm-5">
+                      {{--  <div class="col-sm-5">
                           <div class="signup-form"><!--sign up form-->
                               <h4>Shipping To</h4>
                               <div class="form-group {{$errors->has('shipping_name')?'has-error':''}}">
@@ -357,19 +358,19 @@
                                       @endforeach
                                   </select>
                               </div>
-                              {{-- <div class="form-group {{$errors->has('shipping_pincode')?'has-error':''}}">
+                              <div class="form-group {{$errors->has('shipping_pincode')?'has-error':''}}">
                                   <input type="text" class="form-control" name="shipping_pincode" value="" id="shipping_pincode" placeholder="Shipping Pincode" required>
                                   <span class="text-danger">{{$errors->first('shipping_pincode')}}</span>
-                              </div> --}}
+                              </div>
                               <div class="form-group {{$errors->has('shipping_phonenumber')?'has-error':''}}">
                                   <input type="text" class="form-control" name="shipping_phonenumber" value="" id="shipping_phonenumber" placeholder="Shipping Phonenumber" required>
                                   <span class="text-danger">{{$errors->first('shipping_phonenumber')}}</span>
                               </div>                             
                           </div>
-                      </div>
-                  </div>
-                  {{--  </form>  --}}
+                      </div>  --}}
                       
+                  </div>
+                  {{--  </form>  --}}                      
 
                 </div>  
             </div>
@@ -401,7 +402,10 @@
 
     @push('js')
 
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>
+
         <script type="text/javascript" src="{{ asset('js/moving.js') }}"></script>
+        <script type="text/javascript" src="{{asset('js/booking_detail.js')}}"></script>
         
         <script>
             $(document).on('click', '#checkbox11', function(){
@@ -521,6 +525,17 @@
               }   
             });
 
+            $(document).on('click', '#checkbox13', function(){
+              if ($('#checkbox13').is(':checked') == true) 
+              {
+                $('#checkbox13_description').show(); 
+              }     
+              else
+              {   
+                $('#checkbox13_description').hide();
+              }   
+            });
+
             $(document).on('click', '#radio1', function(){              
                 $('#input6').hide();
                 $("#checkbox6_input").attr("required", false);   
@@ -549,14 +564,7 @@
                   $("#shipping_pincode").val("");
                   $("#shipping_phonenumber").val("");
                 }
-
               });
-
-
-
-            
-
-
          
         </script>
 
