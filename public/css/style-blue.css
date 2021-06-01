@@ -2033,6 +2033,7 @@ ul.orderlist li:before {
 -----------------------------------------*/
 
 footer {
+	/* background: #3483ff url(../images/footer-bg.jpg) no-repeat center; */
 	background: #3483ff url(../images/footer-bg.jpg) no-repeat center;
 	background-size: cover;
 	padding: 40px 0;

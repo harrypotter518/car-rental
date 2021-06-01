@@ -138,8 +138,6 @@
 
     <!-- Custom -->
 
-
-
     <script type="text/javascript" src="{{ asset('admin/assets/js/bootstrap-growl.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.validate.min.js') }}"></script>
 
@@ -147,6 +145,23 @@
     @stack('js')
 
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var elements = document.getElementsByTagName("INPUT");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].oninvalid = function(e) {
+                    e.target.setCustomValidity("");
+                    if (!e.target.validity.valid) {
+                        e.target.setCustomValidity("Enter your info");
+                    }
+                };
+                elements[i].oninput = function(e) {
+                    e.target.setCustomValidity("");
+                };
+            }
+        });
+    </script>
 
 
 

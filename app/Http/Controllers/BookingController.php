@@ -94,6 +94,19 @@ class BookingController extends Controller
 
             "phone" => $request->phone
         );
+
+        $booking_car = DB::table('bookings')->select("pick_up_datetime", "drop_off_datetime", "car_name")->where("car_name", $booking_data["car_name"])->get();
+        
+        for ($i =0; $i<count($booking_car); $i++)
+        {
+            if( ($booking_data["pick_up_datetime"] >= $booking_car[$i]->pick_up_datetime  && $booking_data["pick_up_datetime"] <= $booking_car[$i]->drop_off_datetime) || ($booking_data["drop_off_datetime"] >= $booking_car[$i]->pick_up_datetime  && $booking_data["drop_off_datetime"] <= $booking_car[$i]->drop_off_datetime) ) 
+            {             
+                $booking_time =  $booking_car[$i];
+                return view('welcome', compact('booking_time'));
+            }
+        }  
+        
+        $daily_car_price = DB::table('modules_data')->select("extra_field_2")->where("title", $request->car_name)->get();
         // $request->session()->flash('message.added', 'success');
 
         // $request->session()->flash('message.content', 'Your form is successfully submitted');

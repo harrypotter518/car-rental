@@ -208,7 +208,7 @@
 
                     <div class="input-group date form_datetime"  data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
-                      <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="pick_up_datetime" required >
+                      <input class="form-control" size="16" type="text" value=""  placeholder="{{__('Select Date and Time')}}" name="pick_up_datetime" required >
 
                       <span class="input-group-addon"><i class="fas fa-calendar"></i></span> </div>
 
@@ -226,7 +226,7 @@
 
                     <div class="input-group"> <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop Off')}}</span>
 
-                      <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="">
+                      <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="" required>
 
                       <input type="hidden" name="drop_off_lat" id="drop_off_lat">
 
@@ -244,7 +244,7 @@
 
                     <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
-                      <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date and Time')}}" name="drop_off_datetime" required >
+                      <input class="form-control" size="16" type="text" value=""  placeholder="{{__('Select Date and Time')}}" name="drop_off_datetime" required >
 
                       <span class="input-group-addon"><i class="fas fa-calendar"></i></span> </div>
 
@@ -280,7 +280,7 @@
 
                   <div class="formrow">
 
-                    <input type="number" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
+                    <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
 
                   </div>
 

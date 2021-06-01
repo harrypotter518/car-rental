@@ -2047,7 +2047,8 @@ ul.orderlist li:before {
     display: none !important;
 } /*---------------------------------------   Footer section              -----------------------------------------*/
 footer {
-    background: #0a0a0a url(../images/footer-bg.jpg) no-repeat center;
+    /* background: #0a0a0a url(../images/footer-bg.jpg) no-repeat center; */
+    background: #0a0a0a ;
     background-size: cover;
     padding: 40px 0;
     text-align: center;

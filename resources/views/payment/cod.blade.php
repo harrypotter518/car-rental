@@ -15,8 +15,12 @@
 
   <div class="row" style="height:80vh; padding-top:5vh;">
 
+    <?php
+      $date = new DateTime('now', new DateTimeZone('America/Chicago'));
+    ?>
     <div class="container">
         <h3 class="text-center">YOUR ORDER HAS BEEN PLACED</h3>
+        <h4 class="text-center">{{ $date->format('Y-m-d H:i:s')  }} &emsp;(Chicago,USA)</h4>
         <p class="text-center">Thanks for your Order that use Options on Cash On Delivery</p>
         {{--  <p class="text-center">We will contact you by Your Email (<b>{{$user_order->users_email}}</b>) or Your Phone Number (<b>{{$user_order->mobile}}</b>)</p>  --}}
         <div  class="text-center" tyle="height:80vh;">

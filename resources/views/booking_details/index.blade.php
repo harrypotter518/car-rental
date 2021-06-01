@@ -33,27 +33,37 @@
                   <h3>Add following products</h3>                    
                   <div class="row" style="padding-bottom:1vh;">
                     <div class="col-md-12 col-sm-12">   
-                          <div class="md-checkbox" >
-                            <input type="checkbox" id="checkbox1" name ="checkbox1" class="md-check" >
-                            <label for="checkbox1" >
-                            <span></span>
-                            <span class="check"></span>
-                            <span class="box"></span>
-                            1.Prepaid gas </label>
-                          </div>
+                        <div class="md-checkbox" >
+                          <input type="checkbox" id="checkbox1" name ="checkbox1" class="md-check" >
+                          <label for="checkbox1" >
+                          <span></span>
+                          <span class="check"></span>
+                          <span class="box"></span>
+                          1.Prepaid gas </label>
+                        </div>
                     </div>
+                    <div class="col-md-8 col-sm-8">
+                          <div style="padding-left:3rem">
+                            <div style="padding-bottom:1rem"> a. 100 dollars </div>                             
+                          </div>
+                      </div>
                   </div>      
 
                     <div class="row" style="padding-bottom:1vh;">
                       <div class="col-md-12 col-sm-12">
-                          	<div class="md-checkbox ">
-                              <input type="checkbox" id="checkbox2" name ="checkbox2" class="md-check">
-                              <label for="checkbox2">
-                              <span></span>
-                              <span class="check"></span>
-                              <span class="box"></span>
-                              2.Car wash </label>
-                            </div>
+                          <div class="md-checkbox ">
+                            <input type="checkbox" id="checkbox2" name ="checkbox2" class="md-check">
+                            <label for="checkbox2">
+                            <span></span>
+                            <span class="check"></span>
+                            <span class="box"></span>
+                            2.Car wash </label>
+                          </div>
+                      </div>
+                      <div class="col-md-8 col-sm-8">
+                          <div style="padding-left:3rem">
+                            <div style="padding-bottom:1rem"> a. 30 dollars </div>                             
+                          </div>
                       </div>
                     </div>
                     
@@ -66,6 +76,11 @@
                               <span class="check"></span>
                               <span class="box"></span>
                               3.iphone charger  </label>
+                            </div>
+                      </div>
+                      <div class="col-md-8 col-sm-8">
+                            <div style="padding-left:3rem">
+                              <div style="padding-bottom:1rem"> a. 10 dollars </div>                             
                             </div>
                       </div>
                     </div>   
@@ -81,10 +96,15 @@
                               4.Android charger  </label>
                             </div>
                       </div>
+                      <div class="col-md-8 col-sm-8">
+                            <div style="padding-left:3rem">
+                              <div style="padding-bottom:1rem"> a. 10 dollars </div>                             
+                            </div>
+                      </div>
                     </div>
 
                     <div class="row" style="padding-bottom:1vh;">
-                      <div class="col-md-12 col-sm-12">
+                        <div class="col-md-12 col-sm-12">
                             <div class="md-checkbox">
                               <input type="checkbox" id="checkbox5" name="checkbox5" class="md-check">
                               <label for="checkbox5">
@@ -98,11 +118,11 @@
                             <div style="padding-left:3rem">
                               <div style="padding-bottom:1rem"> a. 100 dollars </div>
                               <div class="form-group form-md-line-input has-info" id="input5" style="display:none">
-                                <input type="text" class="form-control" id="checkbox5_input" name="checkbox5_input" placeholder="Please enter address" required>
+                                <input type="text" class="form-control" id="checkbox5_input" name="checkbox5_input" placeholder="Please enter address" >
                                 <label for="checkbox5_input">Address:</label>
                               </div>
                             </div>
-                      </div>
+                        </div>
                     </div>
 
                     <div class="row" style="padding-bottom:1vh;">
@@ -143,7 +163,7 @@
                               </div>
 
                               <div class="form-group form-md-line-input has-info"  id="input6" style="display:none">
-                                <input type="text" class="form-control" id="checkbox6_input" name="checkbox6_input" placeholder="Please enter address" required>
+                                <input type="text" class="form-control" id="checkbox6_input" name="checkbox6_input" placeholder="Please enter address" >
                                 <label for="checkbox6_input">Address:</label>
                               </div>
                             </div>
@@ -170,13 +190,13 @@
                         </div>
                         <div class="col-md-4 col-sm-4" id="input11_1" style="display:none; padding-left:5vw">
                             <div class="form-group form-md-line-input has-info">
-                              <input type="text" class="form-control" id="checkbox11_company" name="checkbox11_company" placeholder="Please enter company name" required>
+                              <input type="text" class="form-control" id="checkbox11_company" name="checkbox11_company" placeholder="Please enter company name" >
                               <label for="checkbox11_company">Company name:</label>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4" id="input11_2" style="display:none">
                             <div class="form-group form-md-line-input has-info">     
-                              <input type="text" class="form-control" id="checkbox11_policy" name= "checkbox11_policy" placeholder="Please enter policy number" required>
+                              <input type="text" class="form-control" id="checkbox11_policy" name= "checkbox11_policy" placeholder="Please enter policy number" >
                               <label for="checkbox11_policy">Policy number</label>
                             </div>
                         </div>
@@ -245,7 +265,7 @@
                         </div>
                     </div>
                     <div class="row" >
-                      <h3 >&emsp;Total :&emsp;<strong id="total_budget">{{ $car_price }} </strong>USD</h3>
+                      <h3 >&emsp;Total :&emsp;<strong id="total_budget" style="color:green">{{ $car_price }} </strong>&emsp;USD</h3>
                       <input type="hidden" id="total_budget" name= "total_budget" value="{{ $car_price }}">
                       <input type="hidden" id="totalDays" value="{{ $totalDaysDiff}}">
                       <input type="hidden" id="car_name" name="car_name" value="{{ $booking_data['car_name']}}">
@@ -266,7 +286,7 @@
                       <div class="col-sm-5 col-sm-offset-1">
                           <div class="login-form"><!--login form-->
                               <input type="hidden" name="_token" value="{{csrf_token()}}">
-                              <legend>Billing To</legend>
+                              <h4>Billing To</h4>
                               <div class="form-group">
                                   <input type="text" class="form-control" name="billing_name" id="billing_name" value="" placeholder="Billing Name" required>
                                   {{--  <span class="text-danger">asd</span>  --}}
@@ -294,7 +314,7 @@
                                   <input type="text" class="form-control" name="billing_pincode" value="" id="billing_pincode" placeholder=" Billing Pincode" required>                                                             
                               </div> --}}
                               <div class="form-group">
-                                  <input type="number" class="form-control" name="billing_phonenumber" value="" id="billing_phonenumber" placeholder="Billing Phonenumber" required>
+                                  <input type="text" class="form-control" name="billing_phonenumber" value="" id="billing_phonenumber" placeholder="Billing Phonenumber" required>
                                   {{--  <span class="text-danger">{{$errors->first('billing_phonenumber')}}</span>  --}}
                               </div>
                       
@@ -313,7 +333,7 @@
                       </div>
                       <div class="col-sm-5">
                           <div class="signup-form"><!--sign up form-->
-                              <legend>Shipping To</legend>
+                              <h4>Shipping To</h4>
                               <div class="form-group {{$errors->has('shipping_name')?'has-error':''}}">
                                   <input type="text" class="form-control" name="shipping_name" id="shipping_name" value="" placeholder="Shipping Name" required> 
                                   <span class="text-danger">{{$errors->first('shipping_name')}}</span>
@@ -342,7 +362,7 @@
                                   <span class="text-danger">{{$errors->first('shipping_pincode')}}</span>
                               </div> --}}
                               <div class="form-group {{$errors->has('shipping_phonenumber')?'has-error':''}}">
-                                  <input type="number" class="form-control" name="shipping_phonenumber" value="" id="shipping_phonenumber" placeholder="Shipping Phonenumber" required>
+                                  <input type="text" class="form-control" name="shipping_phonenumber" value="" id="shipping_phonenumber" placeholder="Shipping Phonenumber" required>
                                   <span class="text-danger">{{$errors->first('shipping_phonenumber')}}</span>
                               </div>                             
                           </div>
@@ -388,10 +408,14 @@
               if ($('#checkbox11').is(':checked') == true) 
               {
                 $('#input11_1').show(); $('#input11_2').show();   
+                $('#checkbox11_company').attr('required', true);
+                $('#checkbox11_policy').attr('required', true);
               }     
               else
               {   
-                 $('#input11_1').hide(); $('#input11_2').hide();
+                $('#input11_1').hide(); $('#input11_2').hide();
+                $('#checkbox11_company').attr('required', false);
+                $('#checkbox11_policy').attr('required', false);
               }   
             });
 
@@ -407,19 +431,76 @@
                 $("#total_budget").text(budget);
               }   
             });
+
+             $(document).on('click', '#checkbox1', function(){
             
+              if ($('#checkbox1').is(':checked') == true) 
+              {
+                var budget = parseFloat($("#total_budget").text()) + 100;
+                $("#total_budget").text(budget);
+              }     
+              else
+              {  
+                var budget = parseFloat($("#total_budget").text()) - 100;
+                $("#total_budget").text(budget);
+              }   
+            });
+
+             $(document).on('click', '#checkbox2', function(){
+            
+              if ($('#checkbox2').is(':checked') == true) 
+              {
+                var budget = parseFloat($("#total_budget").text()) + 30;
+                $("#total_budget").text(budget);
+              }     
+              else
+              {  
+                var budget = parseFloat($("#total_budget").text()) - 30;
+                $("#total_budget").text(budget);
+              }   
+            });
+
+             $(document).on('click', '#checkbox3', function(){
+            
+              if ($('#checkbox3').is(':checked') == true) 
+              {
+                var budget = parseFloat($("#total_budget").text()) + 10;
+                $("#total_budget").text(budget);
+              }     
+              else
+              {  
+                var budget = parseFloat($("#total_budget").text()) - 10;
+                $("#total_budget").text(budget);
+              }   
+            });
+            
+            $(document).on('click', '#checkbox4', function(){
+            
+              if ($('#checkbox4').is(':checked') == true) 
+              {
+                var budget = parseFloat($("#total_budget").text()) + 10;
+                $("#total_budget").text(budget);
+              }     
+              else
+              {  
+                var budget = parseFloat($("#total_budget").text()) - 10;
+                $("#total_budget").text(budget);
+              }   
+            });
 
             $(document).on('click', '#checkbox5', function(){
             
               if ($('#checkbox5').is(':checked') == true) 
               {
                 $('#input5').show(); 
+                $('#checkbox5_input').attr('required', true);
                 var budget = parseFloat($("#total_budget").text()) + 100;
                 $("#total_budget").text(budget);
               }     
               else
               {   
                 $('#input5').hide();
+                $('#checkbox5_input').attr('required', false);
                 var budget = parseFloat($("#total_budget").text()) - 100;
                 $("#total_budget").text(budget);
               }   
@@ -440,34 +521,33 @@
               }   
             });
 
-            $(document).on('click', '#radio1', function(){
-              
-                $('#input6').hide(); 
+            $(document).on('click', '#radio1', function(){              
+                $('#input6').hide();
+                $("#checkbox6_input").attr("required", false);   
           
             });
-            $(document).on('click', '#radio2', function(){
-              
+            $(document).on('click', '#radio2', function(){              
                 $('#input6').show(); 
-          
+                $("#checkbox6_input").attr("required", true);           
             });
 
               $("#checkme").click(function () {
                 if(this.checked){
                   $("#shipping_name").val($("#billing_name").val());
-                        $("#shipping_address").val($("#billing_address").val());
-                        $("#shipping_city").val($("#billing_city").val());
-                        $("#shipping_state").val($("#billing_state").val());
-                        $("#shipping_country").val($("#billing_country").val());
-                        $("#shipping_pincode").val($("#billing_pincode").val());
-                        $("#shipping_phonenumber").val($("#billing_phonenumber").val());
+                  $("#shipping_address").val($("#billing_address").val());
+                  $("#shipping_city").val($("#billing_city").val());
+                  $("#shipping_state").val($("#billing_state").val());
+                  $("#shipping_country").val($("#billing_country").val());
+                  $("#shipping_pincode").val($("#billing_pincode").val());
+                  $("#shipping_phonenumber").val($("#billing_phonenumber").val());
                 }else{
-                        $("#shipping_name").val("");
-                        $("#shipping_address").val("");
-                        $("#shipping_city").val("");
-                        $("#shipping_state").val("");
-                        $("#shipping_country").val("Albania");
-                        $("#shipping_pincode").val("");
-                        $("#shipping_phonenumber").val("");
+                  $("#shipping_name").val("");
+                  $("#shipping_address").val("");
+                  $("#shipping_city").val("");
+                  $("#shipping_state").val("");
+                  $("#shipping_country").val("Albania");
+                  $("#shipping_pincode").val("");
+                  $("#shipping_phonenumber").val("");
                 }
 
               });

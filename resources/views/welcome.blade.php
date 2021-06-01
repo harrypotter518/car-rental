@@ -118,7 +118,9 @@
 
                 <div class="carinfo">
                   <ul>      
-                    <?php   $features = explode(',', $car->extra_field_5 ); ?>
+                    <?php
+                      $features = explode(',', $car->extra_field_5 ); 
+                    ?>
                     @foreach($features as $feature)
                       {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
                       <li>{{$feature}}</li> 
@@ -182,7 +184,7 @@
 
           <div class="formrow">
 
-            <input type="number" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
+            <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
 
           </div>
 
@@ -201,8 +203,8 @@
               <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Pick Up Address')}}" value=""  style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" required="required" title="a. 111 W Wacker Drive (Free)
 b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
 
+              <div style="color:#fefefe;padding-left:2vw;"><input type="checkbox" class="checkbox" name="pick_up_office_address" id="pick_up_office_address" style="  transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
               <input type="hidden" name="pick_up_lat" id="pick_up_lat">
-
               <input type="hidden" name="pick_up_lng" id="pick_up_lng">
 
             </div>
@@ -218,7 +220,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
             {{--  <div class="input-group date form_datetime" data-date="2021-05-24T05:25:07Z" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">  --}}
             <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
-              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date/Time')}}" name="pick_up_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
+              <input class="form-control" size="16" type="text"   placeholder="{{__('Select Date/Time')}}" name="pick_up_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required>
 
               <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
 
@@ -229,7 +231,7 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
       </div>
 
       <div class="row" >
-          <div style="color:#fefefe; margin-top:-10px;padding-left:2vw;"><input type="checkbox" class="checkbox" name="office_address" id="office_address" style="  transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
+         
           
       </div>
 
@@ -243,11 +245,10 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
               <span class="input-group-addon" style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop Off')}}</span>
 
               <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="" style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" title="a. 111 W Wacker Drive (Free)
-b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
-
+b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)" required>
+              <div style="color:#fefefe;padding-left:2vw;"><input type="checkbox" class="checkbox" name="drop_off_office_address" id="drop_off_office_address" style="transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
               <input type="hidden" name="drop_off_lat" id="drop_off_lat">
-
-             <input type="hidden" name="drop_off_lng" id="drop_off_lng">
+              <input type="hidden" name="drop_off_lng" id="drop_off_lng">
 
             </div>
 
@@ -261,7 +262,8 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
             <div class="input-group date form_datetime"  data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
 
-              <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
+              {{--  <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >  --}}
+              <input class="form-control" size="16" type="text" value=""  placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
 
               <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
 
@@ -272,14 +274,21 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
       </div>
 
       <div class="formrow">
-
-        {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
-
-        {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
+        @if (isset($booking_time))
+          {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), $booking_time->car_name, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
+          {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
+        @else
+          {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
+          {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
+        @endif
 
       </div>
 
-  
+      @if (isset($booking_time))
+        <div class="formrow" style="text-align:center">
+            <input type="text"  value= "This car was already rented from &nbsp;{{ $booking_time->pick_up_datetime }} to &nbsp;{{ $booking_time->drop_off_datetime }}" id="booking_time" style="width:100%; font-size:1.5rem; background:transparent;border:none; color:red">
+        </div>
+      @endif
 
       <div class="formbtn">
 
@@ -735,10 +744,9 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
       <?php 
 
-          $cate_ids = explode(",", $blog->category_ids);
+        $cate_ids = explode(",", $blog->category_ids);
 
-          $categories = App\Models\ModulesData::whereIn('id', $cate_ids)->where('status','active')->get();
-
+        $categories = App\Models\ModulesData::whereIn('id', $cate_ids)->where('status','active')->get();
 
 
         $cate_array = array();
@@ -939,9 +947,9 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
           <div class="contact"> <span><i class="fa fa-envelope"></i></span>
 
-            <div class="information"> <strong>{{__('Email Address')}}:</strong>
+            <div class="information"> <strong >{{__('Email Address')}}:</strong>
 
-              <p>{{widget(1)->extra_field_2}}</p>
+              <p style="word-break: break-all;white-space:pre-line;">{{widget(1)->extra_field_2}}</p>
 
             </div>
 
@@ -1023,8 +1031,8 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
 @push('js')
 <script type="text/javascript">
-  $(document).on('click', '#office_address', function(){
-    if ($('#office_address').is(':checked') == true) 
+  $(document).on('click', '#pick_up_office_address', function(){
+    if ($('#pick_up_office_address').is(':checked') == true) 
     {
       $("#pick_up").val("111 West Wacker Drive, Chicago, Illinois, USA");
       $("#pick_up_lat").val("41.8865866");
@@ -1033,6 +1041,18 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
     else
        $("#pick_up").val("");
   });
+
+  $(document).on('click', '#drop_off_office_address', function(){
+    if ($('#drop_off_office_address').is(':checked') == true) 
+    {
+      $("#drop_off").val("111 West Wacker Drive, Chicago, Illinois, USA");
+      $("#drop_off_lat").val("41.8865866");
+      $("#drop_off_lng").val("-87.6314066");
+    }
+    else
+       $("#drop_off").val("");
+  });
+
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{widget(17)->extra_field_1}}&libraries=places"></script>
 

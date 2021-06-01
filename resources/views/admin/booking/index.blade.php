@@ -75,6 +75,7 @@
                                     <th>{{__('Car Name')}}</th>
 
                                     <th>{{__('Pick-Up')}}</th>
+                                    <th>{{__('Time')}}</th>
 
                                     <th>{{__('Action')}}</th>
 
@@ -92,6 +93,7 @@
                                     <td>{{$data->name}}</td>
                                     <td>{{$data->car_name}}</td>
                                     <td>{{$data->pick_up}}</td>
+                                    <td>{{$data->updated_at}}</td>
                                     <td>
                                        <a href="{{route('admin.booking-detail',[$data->id])}}" class="tabledit-edit-button btn btn-primary waves-effect waves-light"><span class="icofont icofont-eye-alt"></span>&nbsp View Detail</a>
                                        <a href="{{route('admin.booking-destroy',[$data->id])}}" class="tabledit-delete-button btn btn-danger waves-effect waves-light"><span class="icofont icofont-ui-delete"></span>&nbsp {{__('Delete')}}</a>

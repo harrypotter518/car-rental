@@ -43,6 +43,10 @@
                                 <table class="table table-border table-xs">
                                     <tbody>
                                         <tr>
+                                            <td><i class="icofont icofont-contrast"></i> {{__('Time')}}:</td>
+                                            <td class="text-right"><span class="f-right"><a> {{$message->updated_at}}</a></span></td>
+                                        </tr>
+                                        <tr>
                                             <td><i class="icofont icofont-contrast"></i> {{__('Name')}}:</td>
                                             <td class="text-right"><span class="f-right"><a> {{$message->name}}</a></span></td>
                                         </tr>
@@ -99,25 +103,37 @@
                                     <tbody>
                                         @if($message->following_product_1 == "on")
                                             <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Prepaid gas')}}</td>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i> {{__('Prepaid gas')}}
+                                                    <br>&emsp; a. 100 dollars
+                                                </td>
                                             </tr>
                                         @endif 
                                         
                                         @if($message->following_product_2 == "on")
                                             <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Car wash')}}</td>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i> {{__('Car wash')}}
+                                                    <br>&emsp; a. 30 dollars
+                                                </td>
                                             </tr>
                                         @endif 
 
                                         @if($message->following_product_3 == "on")
                                             <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('iphone charger')}}</td>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i> {{__('iphone charger')}}
+                                                    <br>&emsp; a. 10 dollars
+                                                </td>
                                             </tr>
                                         @endif 
 
                                         @if($message->following_product_4 == "on")
                                             <tr>
-                                                <td class="text-left"><i class="icofont icofont-contrast"></i> {{__('Android charger')}}</td>
+                                                <td class="text-left">
+                                                    <i class="icofont icofont-contrast"></i> {{__('Android charger')}}
+                                                    <br>&emsp; a. 10 dollars
+                                                </td>
                                             </tr>
                                         @endif 
 
