@@ -15,7 +15,7 @@ use App\Http\Controllers\CarsController;
 
 use App\Http\Controllers\BookingdetailsController;
 use App\Http\Controllers\MailController;
-
+use App\Http\Controllers\PaypalPaymentController;
 
 use Illuminate\Support\Facades\Mail;
 
@@ -30,28 +30,36 @@ use App\Mail\SendMail;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('send-mail', function () {
+// Route::get('send-mail', function () {
    
-    $details = [
-        'title' => 'Mail from ItSolutionStuff.com',
-        'body' => 'This is for testing email using smtp'
-    ];
+//     $details = [
+//         'title' => 'Mail from ItSolutionStuff.com',
+//         'body' => 'This is for testing email using smtp'
+//     ];
    
-    Mail::to('newalexey2020@gmail.com')->send(new \App\Mail\SendMail($details));
+//     Mail::to('newalexey2020@gmail.com')->send(new \App\Mail\SendMail($details));
    
-    dd("Email is Sent.");
-});
+//     dd("Email is Sent.");
+// });
 
-
-Route::get('sendbasicemail',[MailController::class, 'basic_email']);
-Route::get('sendhtmlemail','MailController@html_email');
-Route::get('sendattachmentemail','MailController@attachment_email');
+// Route::get('sendbasicemail',[MailController::class, 'basic_email']);
+// Route::get('sendhtmlemail','MailController@html_email');
+// Route::get('sendattachmentemail','MailController@attachment_email');
 
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// payment form
+Route::get('/paypal_payment', [PaypalPaymentController::class ,'index'])->name('paypal_payment');
+
+// route for processing payment
+Route::post('paypal', [PaypalPaymentController::class, 'payWithpaypal']);
+
+// route for check status of the payment
+Route::get('status', [PaypalPaymentController::class, 'getPaymentStatus']);
 
 
 Route::post('ckeditor/upload',[CKEditorController::class, 'upload'])->name('ckeditor.image-upload');
@@ -103,4 +111,6 @@ Route::post('news-letter',[NewsLetterController::class, 'store'])->name('newslet
 /*End Contact Us*/
 
 Route::get('/{slug}',[CmsController::class, 'index'])->name('cms.page');
+
+
 

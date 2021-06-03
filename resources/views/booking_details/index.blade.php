@@ -118,9 +118,6 @@
                             <div style="padding-left:3rem">
                               <div style="padding-bottom:1rem"> a. 100 dollars </div>
                               <div class="form-group form-md-line-input has-info" id="input5" style="display:none">
-
-                               <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Pick Up Address')}}">
-
                                 <input type="text" class="form-control" id="checkbox5_input" name="checkbox5_input" placeholder="Please enter address" >
                                 <label for="checkbox5_input">Address:</label>
                               </div>
@@ -268,7 +265,7 @@
                         </div>
                     </div>
                     <div class="row" >
-                      <h3 >&emsp;Total :&emsp;<strong id="total_budget" style="color:green">{{ $car_price }} </strong>&emsp;USD</h3>
+                      <h3 >&emsp;Total :&emsp;<strong id="total_budget_show" style="color:green">{{ $car_price }} </strong>&emsp;USD</h3>
                       <input type="hidden" id="total_budget" name= "total_budget" value="{{ $car_price }}">
                       <input type="hidden" id="totalDays" value="{{ $totalDaysDiff}}">
                       <input type="hidden" id="car_name" name="car_name" value="{{ $booking_data['car_name']}}">
@@ -426,13 +423,15 @@
             $(document).on('click', '#checkbox12', function(){
               if ($('#checkbox12').is(':checked') == true) 
               {
-                var budget = parseFloat($("#total_budget").text()) + 18 * $("#totalDays").val();
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) + 18 * $("#totalDays").val();
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }     
               else
               {   
-                var budget = parseFloat($("#total_budget").text()) - 18 * $("#totalDays").val();
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) - 18 * $("#totalDays").val();
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }   
             });
 
@@ -440,13 +439,15 @@
             
               if ($('#checkbox1').is(':checked') == true) 
               {
-                var budget = parseFloat($("#total_budget").text()) + 100;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) + 100;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }     
               else
               {  
-                var budget = parseFloat($("#total_budget").text()) - 100;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) - 100;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }   
             });
 
@@ -454,13 +455,15 @@
             
               if ($('#checkbox2').is(':checked') == true) 
               {
-                var budget = parseFloat($("#total_budget").text()) + 30;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) + 30;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }     
               else
               {  
-                var budget = parseFloat($("#total_budget").text()) - 30;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) - 30;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }   
             });
 
@@ -468,13 +471,15 @@
             
               if ($('#checkbox3').is(':checked') == true) 
               {
-                var budget = parseFloat($("#total_budget").text()) + 10;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) + 10;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }     
               else
               {  
-                var budget = parseFloat($("#total_budget").text()) - 10;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) - 10;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }   
             });
             
@@ -482,13 +487,15 @@
             
               if ($('#checkbox4').is(':checked') == true) 
               {
-                var budget = parseFloat($("#total_budget").text()) + 10;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) + 10;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }     
               else
               {  
-                var budget = parseFloat($("#total_budget").text()) - 10;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) - 10;
+                $("#total_budget").val(budget);
+                  $("#total_budget_show").text(budget);
               }   
             });
 
@@ -498,30 +505,34 @@
               {
                 $('#input5').show(); 
                 $('#checkbox5_input').attr('required', true);
-                var budget = parseFloat($("#total_budget").text()) + 100;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) + 100;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }     
               else
               {   
                 $('#input5').hide();
                 $('#checkbox5_input').attr('required', false);
-                var budget = parseFloat($("#total_budget").text()) - 100;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) - 100;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }   
             });
             $(document).on('click', '#checkbox6', function(){
               if ($('#checkbox6').is(':checked') == true) 
               {
                 $('#radiopart_6').show(); 
-                var budget = parseFloat($("#total_budget").text()) + 100;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) + 100;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }     
               else
               {   
                 $('#radiopart_6').hide();
                 $('#radio1').checked = true;
-                var budget = parseFloat($("#total_budget").text()) - 100;
-                $("#total_budget").text(budget);
+                var budget = parseFloat($("#total_budget").val()) - 100;
+                $("#total_budget").val(budget);
+                $("#total_budget_show").text(budget);
               }   
             });
 

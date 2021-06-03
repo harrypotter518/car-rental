@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Routing\Redirector;
 class BookingController extends Controller
 {
 
@@ -17,31 +18,18 @@ class BookingController extends Controller
         // ]);
 
         $this->validate($request, [
-
             'car_name' => 'required',
-
             'pick_up' => 'required',
-
             'pick_up_lat' => 'required',
-
             'pick_up_lng' => 'required',
-
             'pick_up_datetime' => 'required',
-
             'drop_off' => 'required',
-
             'drop_off_lat' => 'required',
-
             'drop_off_lng' => 'required',
-
             'drop_off_datetime' => 'required',
-
             'name' => 'required',
-
             'email' => 'required',
-
             'phone' => 'required',
-
         ]);
 
         // $details = [
@@ -71,32 +59,25 @@ class BookingController extends Controller
 
         $booking_data = array(
             "car_name"=> $request->car_name,
-
             "pick_up" => $request->pick_up,
-
             "pick_up_lat" => $request->pick_up_lat,
-
             "pick_up_lng" => $request->pick_up_lng,
-
             "pick_up_datetime" => $request->pick_up_datetime,
-
             "drop_off" => $request->drop_off,
-
             "drop_off_lat" => $request->drop_off_lat,
-
             "drop_off_lng" => $request->drop_off_lng,
-
             "drop_off_datetime" => $request->drop_off_datetime,
-
             "name" => $request->name,
-
             "email" => $request->email,
-
             "phone" => $request->phone
         );
 
+
+        $pick =$booking_data["pick_up_datetime"];
+        $drop =$booking_data["drop_off_datetime"];
+
         $booking_car = DB::table('bookings')->select("pick_up_datetime", "drop_off_datetime", "car_name")->where("car_name", $booking_data["car_name"])->get();
-        
+       
         for ($i =0; $i<count($booking_car); $i++)
         {
             if( ($booking_data["pick_up_datetime"] >= $booking_car[$i]->pick_up_datetime  && $booking_data["pick_up_datetime"] <= $booking_car[$i]->drop_off_datetime) || ($booking_data["drop_off_datetime"] >= $booking_car[$i]->pick_up_datetime  && $booking_data["drop_off_datetime"] <= $booking_car[$i]->drop_off_datetime) ) 
@@ -108,9 +89,7 @@ class BookingController extends Controller
         
         $daily_car_price = DB::table('modules_data')->select("extra_field_2")->where("title", $request->car_name)->get();
         // $request->session()->flash('message.added', 'success');
-
         // $request->session()->flash('message.content', 'Your form is successfully submitted');
-
         // return redirect()->back();
         $countries = DB::table('countries')->get();
 
@@ -135,13 +114,7 @@ class BookingController extends Controller
             'billing_city' => 'required',
             'billing_state' => 'required',
             // 'billing_pincode' => 'required',
-            'billing_phonenumber' => 'required',
-            // 'shipping_name' => 'required',
-            // 'shipping_address' => 'required',
-            // 'shipping_city' => 'required',
-            // 'shipping_state' => 'required',
-            // 'shipping_pincode' => 'required',
-            // 'shipping_phonenumber' => 'required',
+            'billing_phonenumber' => 'required',     
         ]);
         $input_data = $request->all();
 
@@ -198,11 +171,17 @@ class BookingController extends Controller
         $payment_method = $input_data['payment_method'];
         // Orders_model::create($input_data);
         $car_data = DB::table('modules_data')->select("title","image")->where('title',$request->car_name)->get()[0];
-    
+        
+        $grand_total =  $booking->grand_total;
+        $pick_up_datetime =  $booking->pick_up_datetime;
+        $drop_off_datetime =  $booking->drop_off_datetime;
         if ($payment_method == "COD") {
-            return view('payment.cod',compact('car_data'));
-        } else {
-            return view('payment.paypal',compact('car_data'));
+            return view('payment.cod',compact('car_data','grand_total','pick_up_datetime','drop_off_datetime'));
+        } 
+        else 
+        {
+            return redirect('/paypal_payment');             
+        //return view('payment.paypal',compact('car_data','grand_total','pick_up_datetime','drop_off_datetime'));
         }
 
     }
