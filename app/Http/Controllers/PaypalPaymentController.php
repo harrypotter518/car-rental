@@ -46,7 +46,7 @@ class PaypalPaymentController extends Controller
     }
     public function index()
     {
-        $booking = DB::table('bookings')->get()->last();  
+        $booking = DB::table('temporary_bookings')->get()->last();  
         $grand_total =  $booking->grand_total;
         $pick_up_datetime =  $booking->pick_up_datetime;
         $drop_off_datetime =  $booking->drop_off_datetime;
@@ -56,7 +56,7 @@ class PaypalPaymentController extends Controller
         return view('payment.paypal', compact('car_data','grand_total','pick_up_datetime','drop_off_datetime'));
     }
     public function payWithpaypal(Request $request)
-    {
+    {       
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -145,7 +145,6 @@ class PaypalPaymentController extends Controller
         /** clear the session payment ID **/
         Session::forget('paypal_payment_id');
 
-        // if (empty(Request::get('PayerID')) || empty(Request::get('token'))) {
         if (empty($request->PayerID) || empty($request->token)) {
             Session::put('error', 'Payment failed');
             return Redirect::to('/paypal_payment');
@@ -164,16 +163,48 @@ class PaypalPaymentController extends Controller
 
         /**Execute the payment **/
         $result = $payment->execute($execution, $this->_api_context);
-        // var_dump($result); die();
+
         if ($result->getState() == 'approved') {
 
             Session::put('success', 'Payment success');
+
+            $booking = DB::table('temporary_bookings')->get()->last();  
+            DB::table('bookings')->insert([
+                'car_name' => $booking->car_name,
+                'pick_up' => $booking->pick_up,
+                'pick_up_lat' => $booking->pick_up_lat,
+                'pick_up_lng' => $booking->pick_up_lng,
+                'pick_up_datetime' => $booking->pick_up_datetime,
+                'drop_off' => $booking->drop_off,
+                'drop_off_lat' => $booking->drop_off_lat,
+                'drop_off_lng' => $booking->drop_off_lng,
+                'drop_off_datetime' => $booking->drop_off_datetime,
+                'name' => $booking->name,            
+                'email' => $booking->email,
+                'phone' => $booking->phone,
+                'address' => $booking->address,
+                'city' => $booking->city,
+                'state' => $booking->state,
+                'country' => $booking->country,
+                'payment_method' => $booking->payment_method,
+                'following_product_1' => $booking->following_product_1,
+                'following_product_2' => $booking->following_product_2,
+                'following_product_3' => $booking->following_product_3,
+                'following_product_4' => $booking->following_product_4,
+                'following_product_5' => $booking->following_product_5,
+                'following_product_6' => $booking->following_product_6,
+                'insurance_1' => $booking->insurance_1,
+                'insurance_2' => $booking->insurance_2,
+                'insurance_3' => $booking->insurance_3,
+                'grand_total' => $booking->grand_total,
+            ]);
+    
             return Redirect::to('/paypal_payment');
 
         }
 
         Session::put('error', 'Payment failed');
-        $getLastInvoiceNumber = DB::table('bookings')->orderBy('id', 'desc')->limit(1)->delete();
+        //$getLastInvoiceNumber = DB::table('bookings')->orderBy('id', 'desc')->limit(1)->delete();
         return Redirect::to('/paypal_payment');
 
     }

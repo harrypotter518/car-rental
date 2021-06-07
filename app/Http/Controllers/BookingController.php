@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\TemporaryBooking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -117,8 +118,17 @@ class BookingController extends Controller
             'billing_phonenumber' => 'required',     
         ]);
         $input_data = $request->all();
+        $payment_method = $input_data['payment_method'];
 
-        $booking = new Booking();
+        if ($payment_method == "COD") 
+            $booking = new Booking(); 
+        else 
+        {
+            $booking = new TemporaryBooking(); 
+            $booking->truncate();
+        }     
+       
+       
         $booking->car_name = $request->car_name;
         $booking->pick_up = $request->pick_up;
         $booking->pick_up_lat = $request->pick_up_lat;
@@ -167,8 +177,7 @@ class BookingController extends Controller
 
         $request->session()->flash('message.added', 'success');
         $request->session()->flash('message.content', 'Your form is successfully submitted');
-
-        $payment_method = $input_data['payment_method'];
+      
         // Orders_model::create($input_data);
         $car_data = DB::table('modules_data')->select("title","image")->where('title',$request->car_name)->get()[0];
         
@@ -183,7 +192,6 @@ class BookingController extends Controller
             return redirect('/paypal_payment');             
         //return view('payment.paypal',compact('car_data','grand_total','pick_up_datetime','drop_off_datetime'));
         }
-
     }
 
 }

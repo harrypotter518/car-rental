@@ -55,8 +55,7 @@
             </div>
             <h2 class="text-center">{{ $car_data->title }}</h2>
           
-        </div>
-       
+        </div>       
     </div>
  
 
@@ -67,10 +66,10 @@
 @endsection
 
 @push('js')
-    <script>
+    {{--  <script>
         $("#pay_btn").on('click', function(){
             $("#pay_btn").hide();
         });
-    </script>
+    </script>  --}}
 
 @endpush
