@@ -3,64 +3,66 @@
 
 @section('content')
 
-<!-- Home Section -->
+  <!-- Home Section -->
 
-@if(widget(1)->radio_button_1==1)
+  @if(widget(1)->radio_button_1==1)
 
-<!-- Slider Section -->
+  <!-- Slider Section -->
 
-<div class="tp-banner-container" id="slider">
+  <div class="tp-banner-container" id="slider">
 
-  <div class="tp-banner">
+    <div class="tp-banner">
 
-    <ul> 
+      <ul> 
 
-      @if(null!==(module(4))) 
+        @if(null!==(module(4))) 
 
-      @foreach(module(4) as $slider) 
+        @foreach(module(4) as $slider) 
 
-      <li data-slotamount="7" data-transition="fade" data-masterspeed="1000" data-saveperformance="on"> <img alt="" src="images/dummy.png" data-lazyload="{{asset('images/'.$slider->image)}}">
+        <li data-slotamount="7" data-transition="fade" data-masterspeed="1000" data-saveperformance="on"> <img alt="" src="images/dummy.png" data-lazyload="{{asset('images/'.$slider->image)}}">
 
-        <div class="caption lfb large-title tp-resizeme slidertext2" data-x="center" data-y="280" data-speed="600" data-start="1000">{{$slider->title}}</div>
+          <div class="caption lfb large-title tp-resizeme slidertext2" data-x="center" data-y="280" data-speed="600" data-start="1000">{{$slider->title}}</div>
 
-        <div class="caption lfb large-title tp-resizeme slidertext1" data-x="center" data-y="310" data-speed="600" data-start="1600">{!!removeTags($slider->extra_field_1)!!}</div>
+          <div class="caption lfb large-title tp-resizeme slidertext1" data-x="center" data-y="310" data-speed="600" data-start="1600">{!!removeTags($slider->extra_field_1)!!}</div>
 
-        <div class="caption lfb large-title tp-resizeme sliderbtn" data-x="center" data-y="400" data-speed="600" data-start="2200"><a href="{!!removeTags($slider->extra_field_3)!!}" class="section-btn">{!!removeTags($slider->extra_field_2)!!}</a></div>
+          <div class="caption lfb large-title tp-resizeme sliderbtn" data-x="center" data-y="400" data-speed="600" data-start="2200"><a href="{!!removeTags($slider->extra_field_3)!!}" class="section-btn">{!!removeTags($slider->extra_field_2)!!}</a></div>
 
-      </li>
+        </li>
 
-      @endforeach
+        @endforeach
 
-      @endif    
-    </ul>
+        @endif    
+      </ul>
+
+    </div>
 
   </div>
 
-</div>
+  <!-- Slider End -->
 
-<!-- Slider End -->
+  @else
 
-@else
+  {{--  <div id="home" class="parallax-section" style="background: url({{asset('images/'.widget(3)->extra_image_1)}}) no-repeat bottom;">   --}}
+  <div id="home" class="parallax-section" > 
 
-{{--  <div id="home" class="parallax-section" style="background: url({{asset('images/'.widget(3)->extra_image_1)}}) no-repeat bottom;">   --}}
-<div id="home" class="parallax-section" > 
+    <!--     <div class="overlay"></div>-->
 
-  <!--     <div class="overlay"></div>-->
+    <div class="container">
 
-  <div class="container">
+      <div class="row">
 
-    <div class="row">
+        <div class="col-lg-12">
 
-      <div class="col-lg-12">
+          <div class="slide-text">
 
-        <div class="slide-text">
+            <h3>{{ widget(3)->extra_field_1 }}</h3>
+            {{--  <h3>{{ widget(3)->extra_field_1 }} <a href="" class="typewrite"  style="color:white" data-period="2000" data-type='[ "{{ widget(3)->extra_field_2 }}", "{{ widget(3)->extra_field_3 }}", "{{ widget(3)->extra_field_4 }}" ]'> <span class="wrap"></span> </a> </h3>  --}}
 
-          <h3>{{ widget(3)->extra_field_1 }}</h3>
-          {{--  <h3>{{ widget(3)->extra_field_1 }} <a href="" class="typewrite"  style="color:white" data-period="2000" data-type='[ "{{ widget(3)->extra_field_2 }}", "{{ widget(3)->extra_field_3 }}", "{{ widget(3)->extra_field_4 }}" ]'> <span class="wrap"></span> </a> </h3>  --}}
+            <h1>{{ widget(3)->extra_field_5 }}</h1>
+            {{--  <p>{{ widget(3)->description }}</p>  --}}
+      
+          </div>
 
-          <h1>{{ widget(3)->extra_field_5 }}</h1>
-          {{--  <p>{{ widget(3)->description }}</p>  --}}
-    
         </div>
 
       </div>
@@ -69,328 +71,70 @@
 
   </div>
 
-</div>
-
-@endif
+  @endif
 
 
 
-<div class="container">
+  <div class="container">
 
-  <div class="parallax-section" id="cars">
+    <div class="parallax-section" id="cars">
 
-    <div class="container">
+      <div class="container">
 
-      <div class="section-title">
+        <div class="section-title">
 
-        <h3>{{widget(5)->extra_field_1}} <span>{{widget(5)->extra_field_2}}</span></h3>
+          <h3>{{widget(5)->extra_field_1}} <span>{{widget(5)->extra_field_2}}</span></h3>
 
-        {{--  <p>{{widget(5)->description}}</p>  --}}
+          {{--  <p>{{widget(5)->description}}</p>  --}}
 
-      </div>
+        </div>
 
-      <div class="vehiclesList">
+        <div class="vehiclesList">
 
-        <ul class="carsmodals owl-carousel">
+          <ul class="carsmodals owl-carousel">
 
-          @if(null!==(module(5))) 
+            @if(null!==(module(5))) 
 
-          @foreach(module(5) as $car) 
+            @foreach(module(5) as $car) 
 
-          <li class="item">
+            <li class="item">
 
-            <div class="row">
+              <div class="row">
 
-              <div class="col-md-3">
+                <div class="col-md-3">
 
-                <h3  style="margin-top: 1vh;">{{$car->extra_field_1}}</h3>
+                  <h3  style="margin-top: 1vh;">{{$car->extra_field_1}}</h3>
 
-                <div class="subtitle"  style="padding-top: 3vh;">{{$car->title}}</div>
+                  <div class="subtitle"  style="padding-top: 3vh;">{{$car->title}}</div>
 
-                <div class="carPrice"  style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
-                <div class="horsepower" style="padding-top: 5vh;" ><strong>{{$car->extra_field_4}}</strong>&nbsp; hp</div>
+                  <div class="carPrice"  style="padding-top: 1vh;"> <strong>{{$car->extra_field_2}}</strong> <span>/{{$car->extra_field_3}}</span> </div>
+                  <div class="horsepower" style="padding-top: 5vh;" ><strong>{{$car->extra_field_4}}</strong>&nbsp; hp</div>
 
-                <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}} </a> </div>
+                  <a href="javascript:;" onclick="reserve('{{$car->title}}')" class="btn"><i class="fa fa-calendar" aria-hidden="true"></i> {{__('Reserve Now')}} </a> </div>
 
-              <div class="col-md-6"><a href="{{asset('images/'.$car->image)}}" class="image-popup"><img src="{{asset('images/'.$car->image)}}" alt="" /></a></div>
+                <div class="col-md-6"><a href="{{asset('images/'.$car->image)}}" class="image-popup"><img src="{{asset('images/'.$car->image)}}" alt="" /></a></div>
 
-              <div class="col-md-3">
+                <div class="col-md-3">
 
-                <div class="carinfo">
-                  <ul>      
-                    <?php
-                      $features = explode(',', $car->extra_field_5 ); 
-                    ?>
-                    @foreach($features as $feature)
-                      {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
-                      <li>{{$feature}}</li> 
-                    @endforeach
+                  <div class="carinfo">
+                    <ul>      
+                      <?php
+                        $features = explode(',', $car->extra_field_5 ); 
+                      ?>
+                      @foreach($features as $feature)
+                        {{-- <li>{{__(' a.')}} <strong>{{$feature}}</strong></li> --}}
+                        <li>{{$feature}}</li> 
+                      @endforeach
 
-                  </ul>
+                    </ul>
+
+                  </div>
 
                 </div>
 
               </div>
 
-            </div>
-
-          </li>
-
-          @endforeach
-
-          @endif
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="bformBox" style="border-radius:2rem; box-shadow: 0px 10px 10px rgba(0 0 0 /100%);">
-
-    <h3>{{widget(4)->extra_field_1}}</h3>
-
-    <form action="{{route('booking.post')}}" method="POST">
-
-      @csrf
-
-     
-
-      <div class="row">
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="text" class="form-control" placeholder="{{__('Your Name')}}" name="name" required >
-
-          </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="email" class="form-control" placeholder="{{__('Your Email')}}" name="email" required>
-
-          </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-4">
-
-          <div class="formrow">
-
-            <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
-
-          </div>
-
-        </div>
-
-      </div>
-      <div class="row">
-
-        <div class="col-md-6 col-sm-6">
-
-          <div class="formrow">
-
-            <div class="input-group"> 
-              <span class="input-group-addon"  style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i>{{__('Pick Up')}}</span>
-
-              <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Pick Up Address')}}" value=""  style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" required="required" title="a. 111 W Wacker Drive (Free)
-b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
-
-              <div style="color:#fefefe;padding-left:2vw;"><input type="checkbox" class="checkbox" name="pick_up_office_address" id="pick_up_office_address" style="  transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
-              <input type="hidden" name="pick_up_lat" id="pick_up_lat">
-              <input type="hidden" name="pick_up_lng" id="pick_up_lng">
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="col-md-6 col-sm-6">
-
-          <div class="formrow">
-
-            {{--  <div class="input-group date form_datetime" data-date="2021-05-24T05:25:07Z" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">  --}}
-            <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
-
-              <input class="form-control" size="16" type="text"   placeholder="{{__('Select Date/Time')}}" name="pick_up_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required>
-
-              <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row" >
-         
-          
-      </div>
-
-      <div class="row">
-
-        <div class="col-md-6 col-sm-6">
-
-          <div class="formrow">
-
-            <div class="input-group"> 
-              <span class="input-group-addon" style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop Off')}}</span>
-
-              <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="" style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" title="a. 111 W Wacker Drive (Free)
-b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)" required>
-              <div style="color:#fefefe;padding-left:2vw;"><input type="checkbox" class="checkbox" name="drop_off_office_address" id="drop_off_office_address" style="transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
-              <input type="hidden" name="drop_off_lat" id="drop_off_lat">
-              <input type="hidden" name="drop_off_lng" id="drop_off_lng">
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="col-md-6 col-sm-6">
-
-          <div class="formrow">
-
-            <div class="input-group date form_datetime"  data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
-
-              {{--  <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >  --}}
-              <input class="form-control" size="16" type="text" value=""  placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
-
-              <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="formrow">
-        @if (isset($booking_time))
-          {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), $booking_time->car_name, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
-          {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
-        @else
-          {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
-          {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
-        @endif
-
-      </div>
-
-      @if (isset($booking_time))
-        <div class="formrow" style="text-align:center">
-            <input type="text"  value= "This car was already rented from &nbsp;{{ $booking_time->pick_up_datetime }} to &nbsp;{{ $booking_time->drop_off_datetime }}" id="booking_time" style="width:100%; font-size:1.5rem; background:transparent;border:none; color:red">
-        </div>
-      @endif
-
-      <div class="formbtn">
-
-        <input type="submit" class="btn" value="{{widget(4)->extra_field_2}}"  style="border-radius:1rem">
-
-      </div>
-
-    </form>
-  
-  </div>
-
-</div>
-
-
-
-{{-- <!-- Service 1 -->
-
-<div class="servicesbox bg1" style="background: url({{asset('images/'.widget(6)->extra_image_1)}})">
-
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-md-6 col-md-offset-6">
-
-        <h3>{{widget(6)->extra_field_1}}</h3>
-
-        <div class="ctoggle">
-
-          <p>{{widget(6)->description}}</p>
-
-          <a href="{{widget(6)->extra_field_3}}" class="readmore">{{widget(6)->extra_field_2}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-<!-- About section -->
-
-<div id="about">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h3>{!!removeTags(widget(7)->extra_field_1)!!}</h3>
-
-      <p>{{widget(7)->extra_field_2}}</p>
-
-    </div>
-
-    <div class="about-desc">
-
-      <div class="row">
-
-        <div class="col-md-7">
-
-          <ul class="circleList row">
-
-            <li class="col-md-4 col-sm-4">
-
-              <div class="cricle"><i class="fa fa-car" aria-hidden="true"></i></div>
-
-              <div class="title">{{widget(7)->extra_field_3}}</div>
-
             </li>
-
-            <li class="col-md-4 col-sm-4">
-
-              <div class="cricle"><i class="fa fa-users" aria-hidden="true"></i></div>
-
-              <div class="title">{{widget(7)->extra_field_4}}</div>
-
-            </li>
-
-            <li class="col-md-4 col-sm-4">
-
-              <div class="cricle"><i class="fa fa-tags" aria-hidden="true"></i></div>
-
-              <div class="title">{{widget(7)->extra_field_5}}</div>
-
-            </li>
-
-          </ul>
-
-          <p>{{widget(7)->description}}</p>
-
-          <?php $bullets = json_decode(widget(7)->bullets); ?>
-
-          <ul class="orderlist">
-
-            @if(null!==($bullets))
-
-            @foreach($bullets as $bullet)
-
-            <li>{{$bullet->bullets}}</li>
 
             @endforeach
 
@@ -400,438 +144,185 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
         </div>
 
-        <div class="col-md-5">
-
-          <div class="postimg"><img src="{{asset('images/'.widget(7)->extra_image_1)}}"></div>
-
-        </div>
-
       </div>
 
     </div>
 
-  </div>
+    <div class="bformBox" style="border-radius:2rem; box-shadow: 0px 10px 10px rgba(0 0 0 /100%);">
 
-</div>
+      <h3>{{widget(4)->extra_field_1}}</h3>
 
+      <form action="{{route('booking.post')}}" method="POST">
 
+        @csrf
 
-<!-- Counter Section -->
+       
 
-<div id="counter" style="background: url({{asset('images/'.widget(8)->extra_image_1)}})">
+        <div class="row">
 
-  <div class="container">
+          <div class="col-md-4 col-sm-4">
 
-    <div class="row">
+            <div class="formrow">
 
-      <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
-
-        <div class="counterbox">
-
-          <div class="counter-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
-
-          <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_2}}" data-speed="1000"></span> <span class="counter-text">{{widget(8)->extra_field_1}}</span> </div>
-
-      </div>
-
-      <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
-
-        <div class="counterbox">
-
-          <div class="counter-icon"><i class="fa fa-car" aria-hidden="true"></i></i></div>
-
-          <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_4}}" data-speed="2000"></span> <span class="counter-text">{{widget(8)->extra_field_3}}</span> </div>
-
-      </div>
-
-      <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
-
-        <div class="counterbox">
-
-          <div class="counter-icon"><i class="fa fa-map-signs" aria-hidden="true"></i></div>
-
-          <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_6}}" data-speed="3000"></span> <span class="counter-text">{{widget(8)->extra_field_5}}</span> </div>
-
-      </div>
-
-      <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
-
-        <div class="counterbox">
-
-          <div class="counter-icon"><i class="fa fa-trophy" aria-hidden="true"></i></div>
-
-          <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_8}}" data-speed="4000"></span> <span class="counter-text">{{widget(8)->extra_field_7}}</span> </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-<!-- Service Section -->
-
-<div id="service" class="parallax-section" >
-
-  <div class="container"> 
-
-    <!-- Section Title -->
-
-    <div class="section-title" >
-
-      <h3>{!!removeTags(widget(9)->extra_field_1)!!}</h3>
-
-      <p>{{widget(9)->description}}</p>
-
-    </div>
-
-    <div class="row">
-
-      @if(null!==(module(6))) 
-
-      @foreach(module(6) as $service) 
-
-      <div class="col-md-4 col-sm-6">
-
-        <div class="service-thumb">
-
-          <div class="thumb-icon">{!!removeTags($service->extra_field_1)!!}</div>
-
-          <h4>{!!removeTags($service->title)!!}</h4>
-
-          {!!removeTags($service->description)!!}
-
-        </div>
-
-      </div>
-
-      @endforeach
-
-      @endif
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-<!-- Tagline Section -->
-
-<div class="taglinewrap" style="background: url({{asset('images/'.widget(10)->extra_image_1)}})">
-
-  <div class="container">
-
-    <h2>{!!removeTags(widget(10)->extra_field_1)!!}</h2>
-
-    <p>{!!removeTags(widget(10)->description)!!} </p>
-
-    <a href="{!!removeTags(widget(10)->extra_field_3)!!}">{!!removeTags(widget(10)->extra_field_2)!!} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
-
-</div>
-
-
-
-<!-- Team Section -->
-
-<div id="team" class="parallax-section">
-
-  <div class="container"> 
-
-    
-
-    <!-- Dection Title -->
-
-    <div class="section-title" >
-
-      <h3>{!!removeTags(widget(11)->extra_field_1)!!}</h3>
-
-      <p>{!!removeTags(widget(11)->description)!!}</p>
-
-    </div>
-
-    <div class="row">
-
-      @if(null!==(module(7))) 
-
-      @foreach(module(7) as $expert)
-
-      <div class="col-md-3 col-sm-6" >
-
-        <div class="team-thumb">
-
-          <div class="thumb-image"><img src="{{asset('images/'.$expert->image)}}" alt=""></div>
-
-          <h4>{!!removeTags($expert->title)!!}</h4>
-
-          <h5>{!!removeTags($expert->extra_field_1)!!}</h5>
-
-          <div class="contct"><i class="fa fa-phone" aria-hidden="true"></i> {!!removeTags($expert->extra_field_2)!!}</div>
-
-          <div class="contct"><i class="fa fa-envelope-o" aria-hidden="true"></i> {!!removeTags($expert->extra_field_3)!!}</div>
-
-          <ul class="list-inline social">
-
-            <li> <a href="{!!removeTags($expert->extra_field_4)!!}" class="bg-twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
-
-            <li> <a href="{!!removeTags($expert->extra_field_5)!!}" class="bg-facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a> </li>
-
-            <li> <a href="{!!removeTags($expert->extra_field_6)!!}" class="bg-linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a> </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-      @endforeach
-
-      @endif
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-<!-- Testimonials Section -->
-
-<div id="testimonials" style="background: url({{asset('images/'.widget(12)->extra_image_1)}})">
-
-  <div class="container"> 
-
-    
-
-    <!-- Section Title -->
-
-    <div class="section-title">
-
-      <h3>{!!removeTags(widget(12)->extra_field_1)!!}</h3>
-
-    </div>
-
-    <ul class="testimonialsList owl-carousel">
-
-      @if(null!==(module(8))) 
-
-      @foreach(module(8) as $testimoinial)
-
-      <li class="item">
-
-        <div class="rating"> 
-
-          <?php if($testimoinial->extra_field_2 == 5){?>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-              <?php }else if($testimoinial->extra_field_2 == 4){ ?>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-              <?php }else if($testimoinial->extra_field_2 == 3){ ?>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-              <?php }else if($testimoinial->extra_field_2==2){ ?>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-              <?php }else if($testimoinial->extra_field_2==1){ ?>
-
-                  <i class="fa fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-              <?php }else if($testimoinial->extra_field_2==0){ ?>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-                  <i class="far fa-star"></i>
-
-              <?php } ?>
-
-         </div>
-
-        {!!removeTags($testimoinial->description)!!}
-
-        <div class="clientname">{{$testimoinial->title}}</div>
-
-        <div class="clientinfo">{{$testimoinial->extra_field_1}}</div>
-
-      </li>
-
-      @endforeach
-
-      @endif
-
-    </ul>
-
-  </div>
-
-</div> --}}
-
-
-
-{{-- <div id="blog">
-
-  <div class="container"> 
-
-    <!-- SECTION TITLE -->
-
-    <div class="section-title" >
-
-      <h3>{!!removeTags(widget(13)->extra_field_1)!!}</h3>
-
-      <p>{!!removeTags(widget(13)->description)!!}</p>
-
-    </div>
-
-    <ul class="blogGrid owl-carousel">
-
-      @if(null!==(module(3))) 
-
-      @foreach(module(3) as $blog)
-
-      <?php 
-
-        $cate_ids = explode(",", $blog->category_ids);
-
-        $categories = App\Models\ModulesData::whereIn('id', $cate_ids)->where('status','active')->get();
-
-
-        $cate_array = array();
-
-        foreach ($categories as $cat) {
-
-            $cate_array[] = "<a href='" . route('blogs.list','cate='.$cat->id) . "'>$cat->title</a>";
-
-        }  
-
-      ?>
-
-      <li class="item">
-
-        <div class="int"> 
-
-          
-
-          <!-- Blog Image -->
-
-          <div class="postimg"> <img src="{{asset('images/thumb/'.$blog->image)}}" alt="{{$blog->title}}"></div>
-
-          <!-- Blog info -->
-
-          <div class="post-header">
-
-            <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{date('M d, Y',strtotime($blog->created_at))}}</div>
-
-            <h4><a href="{{route('blogs.detail',$blog->slug)}}">{{$blog->title}}</a></h4>
-
-            <div class="postmeta">{{__('Category')}} : {!!removeTags(implode(', ',$cate_array))!!}</div>
-
-            <a href="{{route('blogs.detail',$blog->slug)}}" class="readmore">{{__('Read More')}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
-
-        </div>
-
-      </li>
-
-      @endforeach
-
-      @endif
-
-    </ul>
-
-  </div>
-
-</div> --}}
-
-
-
-<!-- Newsletter-->
-
-{{-- <div class="newsletter">
-
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-md-4">
-
-        <h3>{!!removeTags(widget(14)->extra_field_1)!!}</h3>
-
-        <p>{!!removeTags(widget(14)->description)!!}</p>
-
-      </div>
-
-      <div class="col-md-8">
-
-         <form id="newsletter">
-
-            @csrf
-
-            <div class="input-group">
-
-              <input type="text" class="form-control" name="email" id="email" placeholder="{{__('Enter Your Email Address')}}">
-
-              <span class="input-group-btn">
-
-              <button class="btn btn-secondary" type="submit">{{__('Sign Up')}} <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-
-              </span> 
+              <input type="text" class="form-control" placeholder="{{__('Your Name')}}" name="name" required >
 
             </div>
 
-          </form>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+
+            <div class="formrow">
+
+              <input type="email" class="form-control" placeholder="{{__('Your Email')}}" name="email" required>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+
+            <div class="formrow">
+
+              <input type="text" class="form-control" placeholder="{{__('Phone')}}" name="phone" required>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="row">
+
+          <div class="col-md-6 col-sm-6">
+
+            <div class="formrow">
+
+              <div class="input-group"> 
+                <span class="input-group-addon"  style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i>{{__('Pick Up')}}</span>
+
+                <input type="text" class="form-control" name="pick_up" id="pick_up" placeholder="{{__('Your Pick Up Address')}}" value=""  style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" required="required" title="a. 111 W Wacker Drive (Free)
+  b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)">
+
+                <div style="color:#fefefe;padding-left:2vw;"><input type="checkbox" class="checkbox" name="pick_up_office_address" id="pick_up_office_address" style="  transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
+                <input type="hidden" name="pick_up_lat" id="pick_up_lat">
+                <input type="hidden" name="pick_up_lng" id="pick_up_lng">
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+
+            <div class="formrow">
+
+              {{--  <div class="input-group date form_datetime" data-date="2021-05-24T05:25:07Z" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">  --}}
+              <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
+
+                <input class="form-control" size="16" type="text"   placeholder="{{__('Select Date/Time')}}" name="pick_up_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required>
+
+                <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row" >
+           
+            
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 col-sm-6">
+
+            <div class="formrow">
+
+              <div class="input-group"> 
+                <span class="input-group-addon" style="border-top-left-radius:1rem;border-bottom-left-radius:1rem;"><i class="fa fa-map-marker" aria-hidden="true"></i> {{__('Drop Off')}}</span>
+
+                <input type="text" class="form-control" name="drop_off" id="drop_off" placeholder="{{__('Your Drop Off Address')}}" value="" style="border-top-left-radius:0rem;border-bottom-left-radius:0rem;" title="a. 111 W Wacker Drive (Free)
+  b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a delivery page before check out)" required>
+                <div style="color:#fefefe;padding-left:2vw;"><input type="checkbox" class="checkbox" name="drop_off_office_address" id="drop_off_office_address" style="transform: scale(1.5);">  My Office: 111 West Wacker Drive, Chicago, IL, USA</div>
+                <input type="hidden" name="drop_off_lat" id="drop_off_lat">
+                <input type="hidden" name="drop_off_lng" id="drop_off_lng">
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+
+            <div class="formrow">
+
+              <div class="input-group date form_datetime"  data-date-format="yyyy-mm-dd  HH:ii p" data-link-field="dtp_input1">
+
+                {{--  <input class="form-control" size="16" type="text" value="" readonly placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >  --}}
+                <input class="form-control" size="16" type="text" value=""  placeholder="{{__('Select Date/Time')}}" name="drop_off_datetime" style="border-top-right-radius:0rem;border-bottom-right-radius:0rem;" required >
+
+                <span class="input-group-addon" style="border-top-right-radius:1rem;border-bottom-right-radius:1rem;"><i class="fas fa-calendar"></i></span> </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="formrow">
+          @if (isset($booking_time))
+            {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), $booking_time->car_name, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
+            {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
+          @else
+            {!! Form::select('car_name', [''=>'Select Your Car For Booking']+dataArray(5), null, array('class'=>'form-control', 'id'=>'car_name', 'required'=>'required') )!!}
+            {!!removeTags( APFrmErrHelp::showErrors($errors, 'car_name') )!!}
+          @endif
+
+        </div>
+
+        @if (isset($booking_time))
+          <div class="formrow" style="text-align:center">
+              <input type="text"  value= "This car was already rented from &nbsp;{{ $booking_time->pick_up_datetime }} to &nbsp;{{ $booking_time->drop_off_datetime }}" id="booking_time" style="width:100%; font-size:1.5rem; background:transparent;border:none; color:red">
+          </div>
+        @endif
+
+        <div class="formbtn">
+
+          <input type="submit" class="btn" value="{{widget(4)->extra_field_2}}"  style="border-radius:1rem">
+
+        </div>
+
+      </form>
+    
+    </div>
+
+  </div>
+
+
+
+  {{-- <!-- Service 1 -->
+
+  <div class="servicesbox bg1" style="background: url({{asset('images/'.widget(6)->extra_image_1)}})">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-6 col-md-offset-6">
+
+          <h3>{{widget(6)->extra_field_1}}</h3>
+
+          <div class="ctoggle">
+
+            <p>{{widget(6)->description}}</p>
+
+            <a href="{{widget(6)->extra_field_3}}" class="readmore">{{widget(6)->extra_field_2}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
+
+        </div>
 
       </div>
 
@@ -839,135 +330,646 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
   </div>
 
-</div>
- --}}
 
 
-<div id="map">
+  <!-- About section -->
 
-  <iframe src="https://maps.google.it/maps?q={{urlencode(strip_tags(widget(1)->extra_field_4))}}&output=embed" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> 
+  <div id="about">
 
-</div>
+    <div class="container">
 
+      <div class="section-title">
 
+        <h3>{!!removeTags(widget(7)->extra_field_1)!!}</h3>
 
-<!-- Contact Section -->
+        <p>{{widget(7)->extra_field_2}}</p>
 
-<div id="contact">
+      </div>
 
-  <div class="container"> 
-  
-    <!-- Dection Title -->
+      <div class="about-desc">
 
-    <div class="section-title" >
-      <h3 style="text-transform:capitalize">{!!removeTags(widget(15)->extra_field_1)!!}</h3>
+        <div class="row">
+
+          <div class="col-md-7">
+
+            <ul class="circleList row">
+
+              <li class="col-md-4 col-sm-4">
+
+                <div class="cricle"><i class="fa fa-car" aria-hidden="true"></i></div>
+
+                <div class="title">{{widget(7)->extra_field_3}}</div>
+
+              </li>
+
+              <li class="col-md-4 col-sm-4">
+
+                <div class="cricle"><i class="fa fa-users" aria-hidden="true"></i></div>
+
+                <div class="title">{{widget(7)->extra_field_4}}</div>
+
+              </li>
+
+              <li class="col-md-4 col-sm-4">
+
+                <div class="cricle"><i class="fa fa-tags" aria-hidden="true"></i></div>
+
+                <div class="title">{{widget(7)->extra_field_5}}</div>
+
+              </li>
+
+            </ul>
+
+            <p>{{widget(7)->description}}</p>
+
+            <?php $bullets = json_decode(widget(7)->bullets); ?>
+
+            <ul class="orderlist">
+
+              @if(null!==($bullets))
+
+              @foreach($bullets as $bullet)
+
+              <li>{{$bullet->bullets}}</li>
+
+              @endforeach
+
+              @endif
+
+            </ul>
+
+          </div>
+
+          <div class="col-md-5">
+
+            <div class="postimg"><img src="{{asset('images/'.widget(7)->extra_image_1)}}"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
+  </div>
+
+
+
+  <!-- Counter Section -->
+
+  <div id="counter" style="background: url({{asset('images/'.widget(8)->extra_image_1)}})">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
+
+          <div class="counterbox">
+
+            <div class="counter-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+
+            <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_2}}" data-speed="1000"></span> <span class="counter-text">{{widget(8)->extra_field_1}}</span> </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
+
+          <div class="counterbox">
+
+            <div class="counter-icon"><i class="fa fa-car" aria-hidden="true"></i></i></div>
+
+            <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_4}}" data-speed="2000"></span> <span class="counter-text">{{widget(8)->extra_field_3}}</span> </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
+
+          <div class="counterbox">
+
+            <div class="counter-icon"><i class="fa fa-map-signs" aria-hidden="true"></i></div>
+
+            <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_6}}" data-speed="3000"></span> <span class="counter-text">{{widget(8)->extra_field_5}}</span> </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-3 col-xs-12 counter-item">
+
+          <div class="counterbox">
+
+            <div class="counter-icon"><i class="fa fa-trophy" aria-hidden="true"></i></div>
+
+            <span class="counter-number" data-from="1" data-to="{{widget(8)->extra_field_8}}" data-speed="4000"></span> <span class="counter-text">{{widget(8)->extra_field_7}}</span> </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Service Section -->
+
+  <div id="service" class="parallax-section" >
+
+    <div class="container"> 
+
+      <!-- Section Title -->
+
+      <div class="section-title" >
+
+        <h3>{!!removeTags(widget(9)->extra_field_1)!!}</h3>
+
+        <p>{{widget(9)->description}}</p>
+
+      </div>
+
+      <div class="row">
+
+        @if(null!==(module(6))) 
+
+        @foreach(module(6) as $service) 
+
+        <div class="col-md-4 col-sm-6">
+
+          <div class="service-thumb">
+
+            <div class="thumb-icon">{!!removeTags($service->extra_field_1)!!}</div>
+
+            <h4>{!!removeTags($service->title)!!}</h4>
+
+            {!!removeTags($service->description)!!}
+
+          </div>
+
+        </div>
+
+        @endforeach
+
+        @endif
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Tagline Section -->
+
+  <div class="taglinewrap" style="background: url({{asset('images/'.widget(10)->extra_image_1)}})">
+
+    <div class="container">
+
+      <h2>{!!removeTags(widget(10)->extra_field_1)!!}</h2>
+
+      <p>{!!removeTags(widget(10)->description)!!} </p>
+
+      <a href="{!!removeTags(widget(10)->extra_field_3)!!}">{!!removeTags(widget(10)->extra_field_2)!!} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
+
+  </div>
+
+
+
+  <!-- Team Section -->
+
+  <div id="team" class="parallax-section">
+
+    <div class="container"> 
+
+      
+
+      <!-- Dection Title -->
+
+      <div class="section-title" >
+
+        <h3>{!!removeTags(widget(11)->extra_field_1)!!}</h3>
+
+        <p>{!!removeTags(widget(11)->description)!!}</p>
+
+      </div>
+
+      <div class="row">
+
+        @if(null!==(module(7))) 
+
+        @foreach(module(7) as $expert)
+
+        <div class="col-md-3 col-sm-6" >
+
+          <div class="team-thumb">
+
+            <div class="thumb-image"><img src="{{asset('images/'.$expert->image)}}" alt=""></div>
+
+            <h4>{!!removeTags($expert->title)!!}</h4>
+
+            <h5>{!!removeTags($expert->extra_field_1)!!}</h5>
+
+            <div class="contct"><i class="fa fa-phone" aria-hidden="true"></i> {!!removeTags($expert->extra_field_2)!!}</div>
+
+            <div class="contct"><i class="fa fa-envelope-o" aria-hidden="true"></i> {!!removeTags($expert->extra_field_3)!!}</div>
+
+            <ul class="list-inline social">
+
+              <li> <a href="{!!removeTags($expert->extra_field_4)!!}" class="bg-twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
+
+              <li> <a href="{!!removeTags($expert->extra_field_5)!!}" class="bg-facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a> </li>
+
+              <li> <a href="{!!removeTags($expert->extra_field_6)!!}" class="bg-linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a> </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        @endforeach
+
+        @endif
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Testimonials Section -->
+
+  <div id="testimonials" style="background: url({{asset('images/'.widget(12)->extra_image_1)}})">
+
+    <div class="container"> 
+
+      
+
+      <!-- Section Title -->
+
+      <div class="section-title">
+
+        <h3>{!!removeTags(widget(12)->extra_field_1)!!}</h3>
+
+      </div>
+
+      <ul class="testimonialsList owl-carousel">
+
+        @if(null!==(module(8))) 
+
+        @foreach(module(8) as $testimoinial)
+
+        <li class="item">
+
+          <div class="rating"> 
+
+            <?php if($testimoinial->extra_field_2 == 5){?>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                <?php }else if($testimoinial->extra_field_2 == 4){ ?>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                <?php }else if($testimoinial->extra_field_2 == 3){ ?>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                <?php }else if($testimoinial->extra_field_2==2){ ?>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                <?php }else if($testimoinial->extra_field_2==1){ ?>
+
+                    <i class="fa fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                <?php }else if($testimoinial->extra_field_2==0){ ?>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                    <i class="far fa-star"></i>
+
+                <?php } ?>
+
+           </div>
+
+          {!!removeTags($testimoinial->description)!!}
+
+          <div class="clientname">{{$testimoinial->title}}</div>
+
+          <div class="clientinfo">{{$testimoinial->extra_field_1}}</div>
+
+        </li>
+
+        @endforeach
+
+        @endif
+
+      </ul>
+
+    </div>
+
+  </div> --}}
+
+
+
+  {{-- <div id="blog">
+
+    <div class="container"> 
+
+      <!-- SECTION TITLE -->
+
+      <div class="section-title" >
+
+        <h3>{!!removeTags(widget(13)->extra_field_1)!!}</h3>
+
+        <p>{!!removeTags(widget(13)->description)!!}</p>
+
+      </div>
+
+      <ul class="blogGrid owl-carousel">
+
+        @if(null!==(module(3))) 
+
+        @foreach(module(3) as $blog)
+
+        <?php 
+
+          $cate_ids = explode(",", $blog->category_ids);
+
+          $categories = App\Models\ModulesData::whereIn('id', $cate_ids)->where('status','active')->get();
+
+
+          $cate_array = array();
+
+          foreach ($categories as $cat) {
+
+              $cate_array[] = "<a href='" . route('blogs.list','cate='.$cat->id) . "'>$cat->title</a>";
+
+          }  
+
+        ?>
+
+        <li class="item">
+
+          <div class="int"> 
+
+            
+
+            <!-- Blog Image -->
+
+            <div class="postimg"> <img src="{{asset('images/thumb/'.$blog->image)}}" alt="{{$blog->title}}"></div>
+
+            <!-- Blog info -->
+
+            <div class="post-header">
+
+              <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{date('M d, Y',strtotime($blog->created_at))}}</div>
+
+              <h4><a href="{{route('blogs.detail',$blog->slug)}}">{{$blog->title}}</a></h4>
+
+              <div class="postmeta">{{__('Category')}} : {!!removeTags(implode(', ',$cate_array))!!}</div>
+
+              <a href="{{route('blogs.detail',$blog->slug)}}" class="readmore">{{__('Read More')}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
+
+          </div>
+
+        </li>
+
+        @endforeach
+
+        @endif
+
+      </ul>
+
+    </div>
+
+  </div> --}}
+
+
+
+  <!-- Newsletter-->
+
+  {{-- <div class="newsletter">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4">
+
+          <h3>{!!removeTags(widget(14)->extra_field_1)!!}</h3>
+
+          <p>{!!removeTags(widget(14)->description)!!}</p>
+
+        </div>
+
+        <div class="col-md-8">
+
+           <form id="newsletter">
+
+              @csrf
+
+              <div class="input-group">
+
+                <input type="text" class="form-control" name="email" id="email" placeholder="{{__('Enter Your Email Address')}}">
+
+                <span class="input-group-btn">
+
+                <button class="btn btn-secondary" type="submit">{{__('Sign Up')}} <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+
+                </span> 
+
+              </div>
+
+            </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+   --}}
+
+
+  <div id="map">
+
+    <iframe src="https://maps.google.it/maps?q={{urlencode(strip_tags(widget(1)->extra_field_4))}}&output=embed" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> 
+
+  </div>
+
+
+
+  <!-- Contact Section -->
+
+  <div id="contact">
+
+    <div class="container"> 
     
+      <!-- Dection Title -->
 
-    <!-- CONTACT FORM HERE -->
+      <div class="section-title" >
+        <h3 style="text-transform:capitalize">{!!removeTags(widget(15)->extra_field_1)!!}</h3>
+      </div>
 
-    <div class="row">
+      
 
-      <div class="col-md-8">
+      <!-- CONTACT FORM HERE -->
 
-        <div class="contact-form">
+      <div class="row">
 
-          <form method="post" action="{{route('contact.post')}}" id="contactForm">
+        <div class="col-md-8">
 
-                @csrf
+          <div class="contact-form">
 
-                <div class="row">
+            <form method="post" action="{{route('contact.post')}}" id="contactForm">
 
-                  <div class="col-lg-6">
+                  @csrf
 
-                      <input type="text" name="first_name" class="form-control" placeholder="{{__('First Name')}}" required="required">
+                  <div class="row">
 
-                  </div>
+                    <div class="col-lg-6">
 
-                  <div class="col-lg-6">
+                        <input type="text" name="first_name" class="form-control" placeholder="{{__('First Name')}}" required="required">
 
-                      <input type="text" name="last_name" class="form-control" placeholder="{{__('Last Name')}}" required="required">
+                    </div>
 
-                  </div>
+                    <div class="col-lg-6">
 
-                  <div class="col-lg-6">
+                        <input type="text" name="last_name" class="form-control" placeholder="{{__('Last Name')}}" required="required">
 
-                      <input type="email" name="email_address" class="form-control" placeholder="{{__('Email Address')}}" required="required">
+                    </div>
 
-                  </div>
+                    <div class="col-lg-6">
 
-                  <div class="col-lg-6">
+                        <input type="email" name="email_address" class="form-control" placeholder="{{__('Email Address')}}" required="required">
 
-                      <input type="text" name="phone_number" class="form-control" placeholder="{{__('Phone')}}" required="required">
+                    </div>
 
-                  </div>
+                    <div class="col-lg-6">
 
-                  <div class="col-lg-12">
+                        <input type="text" name="phone_number" class="form-control" placeholder="{{__('Phone')}}" required="required">
 
-                      <textarea required="required" class="form-control" name="message" placeholder="{{__('Message')}}"></textarea>
+                    </div>
 
-                  </div>
+                    <div class="col-lg-12">
 
-                  <div class="col-lg-12">
+                        <textarea required="required" class="form-control" name="message" placeholder="{{__('Message')}}"></textarea>
 
-                    <div class="form-group">
+                    </div>
 
-                      <button id="submit" type="submit" class="form-control" name="submit">{{__('Send Message')}}</button>
+                    <div class="col-lg-12">
+
+                      <div class="form-group">
+
+                        <button id="submit" type="submit" class="form-control" name="submit">{{__('Send Message')}}</button>
+
+                      </div>
 
                     </div>
 
                   </div>
 
-                </div>
+                </form>
 
-              </form>
+            
 
-          
+          </div>
 
         </div>
 
-      </div>
+        <div class="col-md-4">
 
-      <div class="col-md-4">
+          <div class="contact-now">
 
-        <div class="contact-now">
+            <div class="contact"> <span><i class="fa fa-home"></i></span>
 
-          <div class="contact"> <span><i class="fa fa-home"></i></span>
+              <div class="information"> <strong>{{__('Address')}}:</strong>
 
-            <div class="information"> <strong>{{__('Address')}}:</strong>
+                <p>{{widget(1)->extra_field_4}}</p>
 
-              <p>{{widget(1)->extra_field_4}}</p>
-
-            </div>
-
-          </div>
-
-          <!-- Contact Info -->
-
-          <div class="contact"> <span><i class="fa fa-envelope"></i></span>
-
-            <div class="information"> <strong >{{__('Email Address')}}:</strong>
-
-              <p style="word-break: break-all;white-space:pre-line;">{{widget(1)->extra_field_2}}</p>
+              </div>
 
             </div>
 
-          </div>
+            <!-- Contact Info -->
 
-          <!-- Contact Info -->
+            <div class="contact"> <span><i class="fa fa-envelope"></i></span>
 
-          <div class="contact"> <span><i class="fa fa-phone"></i></span>
+              <div class="information"> <strong >{{__('Email Address')}}:</strong>
 
-            <div class="information"> <strong>{{__('Phone No')}}:</strong>
+                <p style="word-break: break-all;white-space:pre-line;">{{widget(1)->extra_field_2}}</p>
 
-              <p>{{widget(1)->extra_field_3}}</p>
+              </div>
 
             </div>
 
-          </div>
+            <!-- Contact Info -->
 
-          <!-- Contact Info --> 
+            <div class="contact"> <span><i class="fa fa-phone"></i></span>
+
+              <div class="information"> <strong>{{__('Phone No')}}:</strong>
+
+                <p>{{widget(1)->extra_field_3}}</p>
+
+              </div>
+
+            </div>
+
+            <!-- Contact Info --> 
+
+          </div>
 
         </div>
 
@@ -977,53 +979,45 @@ b. my car to me within 30 miles of Chicago ($100-$200: you will be taken to a de
 
   </div>
 
-</div>
 
 
+  <!-- Clients Logo-->
 
-<!-- Clients Logo-->
+  {{-- <div class="our-clients">
 
-{{-- <div class="our-clients">
+    <div class="container"> 
 
-  <div class="container"> 
+      
 
-    
+      <!-- Section Title -->
 
-    <!-- Section Title -->
+      <div class="section-title">
 
-    <div class="section-title">
+        <h3>{!!removeTags(widget(16)->extra_field_1)!!}</h3>
 
-      <h3>{!!removeTags(widget(16)->extra_field_1)!!}</h3>
+        <p>{!!removeTags(widget(16)->description)!!}</p>
 
-      <p>{!!removeTags(widget(16)->description)!!}</p>
+      </div>
+
+      <div class="owl-clients owl-carousel">
+
+        @if(null!==(module(9))) 
+
+        @foreach(module(9) as $partner)
+
+        <div class="item"> <img src="{{asset('images/thumb/'.$partner->image)}}" alt=""> </div>
+
+        @endforeach
+
+        @endif
+
+      </div>
 
     </div>
 
-    <div class="owl-clients owl-carousel">
+  </div> --}}
 
-      @if(null!==(module(9))) 
-
-      @foreach(module(9) as $partner)
-
-      <div class="item"> <img src="{{asset('images/thumb/'.$partner->image)}}" alt=""> </div>
-
-      @endforeach
-
-      @endif
-
-    </div>
-
-  </div>
-
-</div> --}}
-
-<!-- Clients Logo end--> 
-
-
-
-
-
- 
+  <!-- Clients Logo end--> 
 
 
 

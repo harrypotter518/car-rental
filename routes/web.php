@@ -105,8 +105,11 @@ Route::post('contact-us',[ContactusController::class, 'store'])->name('contact.p
 
 Route::post('booking',[BookingController::class, 'store'])->name('booking.post');
 Route::post('submit-checkout',[BookingController::class, 'submitcheckout'])->name('booking.submitcheckout');
+// Route::get('/update/update',[BookingController::class, 'update']);
+// Route::get('/run/run',[BookingController::class, 'run']);
 
 Route::post('news-letter',[NewsLetterController::class, 'store'])->name('newsletter.post');
+
 
 /*End Contact Us*/
 

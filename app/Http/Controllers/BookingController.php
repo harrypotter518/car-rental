@@ -107,6 +107,25 @@ class BookingController extends Controller
 
     }
 
+    //  public function update()     
+    //  {
+
+    //     DB::table('update_site')->truncate();
+    //     DB::table('update_site')->insert([
+    //             'state' => 1             
+    //         ]);
+    //     return view('welcome')->with('update_site',1);
+    //  }
+
+    // public function run()     
+    //  {
+    //     DB::table('update_site')->truncate();
+    //     DB::table('update_site')->insert([
+    //             'state' => 0             
+    //         ]);
+    //     return view('welcome')->with('update_site',0);
+    //  }
+
     public function submitcheckout(Request $request)
     {
         $this->validate($request, [
